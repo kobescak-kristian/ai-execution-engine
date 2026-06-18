@@ -199,10 +199,10 @@ ai-execution-engine/
 
 Part of a five-engine AI decision system:
 
-- **[Reliability Engine](https://github.com/kobescak-kristian/ai-reliability-engine)** → prevents invalid AI outputs from entering workflows
-- **[Decision Engine](https://github.com/kobescak-kristian/ai-decision-engine)** → tracks outcomes and evaluates whether decisions were correct
-- **[Impact Engine](https://github.com/kobescak-kristian/ai-impact-engine)** → measures the financial impact of decisions and tunes thresholds
-- **[Context Engine](https://github.com/kobescak-kristian/ai-context-engine)** → grounds decisions in retrieved precedent and explains them
-- **Execution Engine** → executes the workflow and recommends improvements *(this system)*
+- **[Reliability Engine](https://github.com/kobescak-kristian/ai-reliability-engine)** - prevents invalid AI outputs from entering workflows
+- **[Decision Engine](https://github.com/kobescak-kristian/ai-decision-engine)** - tracks outcomes and evaluates whether decisions were correct
+- **[Impact Engine](https://github.com/kobescak-kristian/ai-impact-scoring-engine)** - measures the financial impact of decisions and tunes thresholds
+- **[Context Engine](https://github.com/kobescak-kristian/ai-context-engine)** - grounds decisions in retrieved precedent and explains them
+- **Execution Engine** - executes the workflow and recommends improvements *(this system)*
 
-→ Complete system: validation → evaluation → financial impact → grounded explanation → execution
+Complete system: validation → evaluation → financial impact → grounded explanation → execution
