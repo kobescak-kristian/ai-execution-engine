@@ -154,10 +154,9 @@ if __name__ == "__main__":
     all_leads = gen_web_forms(25) + gen_emails(25) + gen_ad_platform(25)
     random.shuffle(all_leads)
 
-    output_path = os.path.join(os.path.dirname(__file__), "data", "raw_inputs.json")
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    output_path = os.path.join(os.path.dirname(__file__), "raw_inputs.json")
 
     with open(output_path, "w") as f:
         json.dump(all_leads, f, indent=2)
 
-    print(f"Generated {len(all_leads)} leads → {output_path}")
+    print(f"Generated {len(all_leads)} leads -> {output_path}")

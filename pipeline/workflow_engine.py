@@ -91,8 +91,12 @@ def bulk_ingest(leads: list) -> dict:
 
     for entry in leads:
         try:
-            result = ingest_lead(entry["source_type"], entry["raw_data"])
-            if result.get("source_ref") and db.get_lead_by_source_ref(result["source_ref"]):
+            normalized = normalize(entry["source_type"], entry["raw_data"])
+            is_duplicate = bool(db.get_lead_by_source_ref(normalized.source_ref))
+            ingest_lead(entry["source_type"], entry["raw_data"])
+            if is_duplicate:
+                results["skipped"] += 1
+            else:
                 results["ingested"] += 1
         except Exception as e:
             results["failed"] += 1

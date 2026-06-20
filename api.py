@@ -142,6 +142,10 @@ def progress_to_stage(lead_id: int, to_stage: str, trigger: str, notes: Optional
     """
     Explicit stage update with separate to_stage parameter.
     """
+    lead = db.get_lead_by_id(lead_id)
+    if not lead:
+        raise HTTPException(status_code=404, detail=f"Lead {lead_id} not found")
+    previous_stage = lead["current_stage"]
     try:
         updated = transition_lead(
             lead_id=lead_id,
@@ -152,7 +156,7 @@ def progress_to_stage(lead_id: int, to_stage: str, trigger: str, notes: Optional
         return {
             "status": "updated",
             "lead_id": updated["id"],
-            "previous_stage": trigger,
+            "previous_stage": previous_stage,
             "current_stage": updated["current_stage"],
         }
     except TransitionError as e:

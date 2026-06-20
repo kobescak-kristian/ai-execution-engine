@@ -3,7 +3,11 @@ from typing import Optional
 
 from database import db
 from pipeline.router import is_valid_transition, get_valid_next_stages
-from config.settings import QUEUE_REENGAGEMENT
+from config.settings import (
+    QUEUE_REENGAGEMENT,
+    FOLLOW_UP_THRESHOLD_DAYS,
+    STUCK_LEAD_THRESHOLD_DAYS,
+)
 from utils.logger import get_logger
 
 logger = get_logger("state_manager")
@@ -72,7 +76,10 @@ def transition_lead(
 
 # ─── Automated Workflow Checks ────────────────────────────────────────────────
 
-def run_automated_checks(follow_up_days: int = 3, stuck_days: int = 7) -> dict:
+def run_automated_checks(
+    follow_up_days: int = FOLLOW_UP_THRESHOLD_DAYS,
+    stuck_days: int = STUCK_LEAD_THRESHOLD_DAYS,
+) -> dict:
     """
     Scans all active leads and applies time-based automation rules:
     - No contact after X days in 'assigned' → escalate to manual_review

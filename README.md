@@ -67,7 +67,7 @@ source types (`web_form`, `email`, `ad_platform`).
    dropped)
 3. **Route** — deterministic, score-based assignment to a queue and
    stage: queues `inbound_queue`, `smb_sales`, `enterprise_sales`,
-   `manual_review_queue`
+   `manual_review_queue`, `reengagement_queue`
 4. **Persist** — a lead record is created in SQLite; stage and queue
    recorded
 5. **Lifecycle** — stages progress `new → qualified → assigned →
@@ -85,7 +85,7 @@ source types (`web_form`, `email`, `ad_platform`).
 |---|---|
 | Pydantic v2 normalisation | Three lead sources handled as one clean, validated schema |
 | Deterministic scoring & routing | Reproducible, testable routing — no black-box decisions |
-| Named queues + stages | Clear operational ownership and a defined lifecycle |
+| Named queues + stages | Five queues (`inbound`, `smb_sales`, `enterprise_sales`, `manual_review`, `reengagement`) — clear operational ownership and a defined lifecycle |
 | SQLite state + transitions | Full, reconstructable lead journey and audit trail |
 | Deduplication | The same lead is flagged, not double-processed |
 | Metrics evaluator | Bottlenecks and stuck leads are visible, not guessed at |
@@ -160,6 +160,31 @@ API authentication · real CRM integration.*
 
 Complete — v1.0
 
+## Setup
+
+```bash
+# 1. Install dependencies
+pip install -r requirements.txt
+
+# 2. Configure environment
+cp .env.example .env
+# Edit .env and set OPENAI_API_KEY (optional — falls back to deterministic agent if unset)
+
+# 3. Run the demo (seeds the database and prints metrics + recommendations)
+python main.py
+
+# Reset the database and re-run from scratch
+python main.py --reset
+
+# 4. Start the HTTP API
+uvicorn api:app --reload
+# Interactive docs available at http://localhost:8000/docs
+```
+
+The demo run seeds 75 leads from `data/raw_inputs.json`, runs automated workflow checks,
+simulates lifecycle progressions, and prints metrics and agent recommendations to stdout.
+To regenerate the dataset: `python data/generate_dataset.py`
+
 ## Repository Structure
 
 ```
@@ -168,7 +193,7 @@ ai-execution-engine/
 ├── main.py                   # Local demo runner and seed entry point (--reset)
 ├── requirements.txt
 ├── .env.example
-├── architecture.png
+├── ai-execution-engine_architecture.png
 │
 ├── pipeline/
 │   ├── normalizer.py         # Source-specific field mapping + score computation
@@ -205,4 +230,4 @@ Part of a five-engine AI decision system:
 - **AI Execution Engine** - executes the workflow and recommends improvements *(this system)*
 - **[AI Context Engine](https://github.com/kobescak-kristian/ai-context-engine)** - grounds decisions in retrieved precedent and explains them
 
-Complete system: validation → evaluation → financial impact → grounded explanation → execution
+Complete system: validation → evaluation → financial impact → execution → grounded explanation
