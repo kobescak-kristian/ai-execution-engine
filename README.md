@@ -1,6 +1,8 @@
 # AI Execution Engine (CRM Workflow Automation) — v1.0
 
-## The Problem With Workflow Automation That Can't See Itself
+## Problem
+
+**The problem with workflow automation that can't see itself.**
 
 Lead-handling workflows are easy to start and hard to keep honest.
 Leads arrive from different channels in different shapes, get scored
@@ -14,7 +16,9 @@ This system runs the workflow deterministically and adds an AI layer
 that recommends improvements without ever touching the workflow's
 state.
 
-## What This System Does
+## Solution
+
+**What this system does.**
 
 A stateful CRM workflow engine. It ingests leads from three source
 types, normalises them into one schema, scores and routes them
@@ -159,6 +163,16 @@ API authentication · real CRM integration.*
 ## Status
 
 Complete — v1.0
+
+## Version Log
+
+| Version | Date | Change |
+|---|---|---|
+| v1.0 | 2026-06-17 | Initial commit — AI execution engine (workflow automation pipeline) |
+| v1.0 | 2026-06-17 | Docs: add case-study README + architecture diagram |
+| v1.0 | 2026-06-18 | Docs: consistency pass — canonical System Context order + AI engine names |
+| v1.0 | 2026-06-18 | Docs: standardize naming — fix Impact Engine URL, dash bullets in System Context |
+| v1.0 | 2026-06-20 | Fix execution engine audit findings — release |
 
 ## Setup
 
