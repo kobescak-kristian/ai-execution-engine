@@ -1,3 +1,13 @@
+import sys
+
+# Windows consoles often default to a legacy codepage (e.g. cp1252) that cannot
+# encode arbitrary Unicode lead data (e.g. names like "Kovač"). Backslash-escape
+# unencodable characters when rendering to the console instead of crashing;
+# this affects console output only, never what gets stored in the database.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(errors="backslashreplace")
+    sys.stderr.reconfigure(errors="backslashreplace")
+
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import JSONResponse
 from typing import Optional, List
