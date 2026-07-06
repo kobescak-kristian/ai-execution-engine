@@ -4,10 +4,36 @@ from typing import Optional
 from pipeline.normalizer import normalize
 from pipeline.router import route_lead
 from database import db
-from models.schemas import SourceType
+from models.schemas import SourceType, NormalizedLead
 from utils.logger import get_logger
 
 logger = get_logger("workflow_engine")
+
+
+class DuplicateConflictError(Exception):
+    """Raised when a source_ref repeats but the incoming data disagrees with
+    what's already stored — the existing lead is never overwritten."""
+
+    def __init__(self, existing_lead_id: int, message: str):
+        super().__init__(message)
+        self.existing_lead_id = existing_lead_id
+
+
+# Fields compared to decide "same data" vs "conflicting data" for a repeated
+# source_ref. Compared on the NORMALIZED lead (post source_ref derivation),
+# not raw_data — an API web-form ingest only carries a form_id, not the full
+# stored shape, so raw payloads across sources aren't directly comparable.
+_DEDUP_COMPARE_FIELDS = [
+    "full_name", "email", "company", "phone", "message_snippet",
+    "company_size", "industry", "lead_score",
+]
+
+
+def _matches_existing(normalized: NormalizedLead, existing: dict) -> bool:
+    return all(
+        getattr(normalized, field) == existing.get(field)
+        for field in _DEDUP_COMPARE_FIELDS
+    )
 
 
 def _now_iso() -> str:
@@ -20,19 +46,38 @@ def ingest_lead(source_type: str, raw_data: dict) -> dict:
     """
     Full ingest pipeline:
     1. Normalize raw input into unified lead schema
-    2. Score and route to appropriate queue/stage
-    3. Persist lead record + initial transition
-    4. Return stored lead record
+    2. Check for a duplicate/conflicting source_ref
+    3. Score and route to appropriate queue/stage
+    4. Persist lead record + initial transition
+    5. Return the stored lead record, tagged with an ingest status
+
+    Returned dict includes "status": "ingested" | "duplicate".
+    Raises DuplicateConflictError if the source_ref repeats with different data.
     """
 
     # Step 1: Normalize
     normalized = normalize(source_type, raw_data)
 
-    # Step 2: Check for duplicate by source_ref
+    # Step 2: Check for duplicate/conflict by source_ref
     existing = db.get_lead_by_source_ref(normalized.source_ref)
     if existing:
-        logger.info(f"Duplicate source_ref {normalized.source_ref}, skipping ingest")
-        return existing
+        if _matches_existing(normalized, existing):
+            db.increment_duplicate_count(existing["id"])
+            logger.info(
+                f"Duplicate source_ref {normalized.source_ref} (lead_id={existing['id']}), "
+                f"same data, skipping ingest"
+            )
+            return {"status": "duplicate", **db.get_lead_by_id(existing["id"])}
+        else:
+            logger.warning(
+                f"Duplicate source_ref {normalized.source_ref} (lead_id={existing['id']}) "
+                f"has conflicting data, rejecting ingest"
+            )
+            raise DuplicateConflictError(
+                existing["id"],
+                f"source_ref {normalized.source_ref} already exists as lead "
+                f"{existing['id']} with different data"
+            )
 
     # Step 3: Route
     routing = route_lead(normalized)
@@ -77,34 +122,4 @@ def ingest_lead(source_type: str, raw_data: dict) -> dict:
         f"Lead ingested: id={lead_id} | name={normalized.full_name} | "
         f"stage={routing.initial_stage.value} | queue={routing.assigned_queue}"
     )
-    return stored
-
-
-# ─── Bulk Ingest ──────────────────────────────────────────────────────────────
-
-def bulk_ingest(leads: list) -> dict:
-    """
-    Ingest a list of raw lead dicts (each with 'source_type' and 'raw_data').
-    Returns summary of ingested, skipped, failed.
-    """
-    results = {"ingested": 0, "skipped": 0, "failed": 0, "errors": []}
-
-    for entry in leads:
-        try:
-            normalized = normalize(entry["source_type"], entry["raw_data"])
-            is_duplicate = bool(db.get_lead_by_source_ref(normalized.source_ref))
-            ingest_lead(entry["source_type"], entry["raw_data"])
-            if is_duplicate:
-                results["skipped"] += 1
-            else:
-                results["ingested"] += 1
-        except Exception as e:
-            results["failed"] += 1
-            results["errors"].append(str(e))
-            logger.error(f"Ingest failed for entry: {e}")
-
-    logger.info(
-        f"Bulk ingest complete: {results['ingested']} ingested, "
-        f"{results['skipped']} skipped, {results['failed']} failed"
-    )
-    return results
+    return {"status": "ingested", **stored}

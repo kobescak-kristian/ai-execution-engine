@@ -1,5 +1,8 @@
 """
-Generates raw_inputs.json — 75 simulated leads across 3 source types.
+Generates raw_inputs.json — 74 distinct simulated leads across 3 source types,
+plus 2 intentional dedup fixtures (a same-data duplicate and a conflicting-data
+duplicate) that reuse an existing lead's identifier, so the ingest pipeline's
+duplicate/conflict handling (Fix M1) is demonstrated on every seed run.
 Run once to regenerate the dataset file.
 """
 import json
@@ -151,7 +154,35 @@ def gen_ad_platform(n: int) -> list:
 
 if __name__ == "__main__":
     import os
-    all_leads = gen_web_forms(25) + gen_emails(25) + gen_ad_platform(25)
+    web_forms = gen_web_forms(24)
+    emails = gen_emails(25)
+    ad_platform = gen_ad_platform(25)
+    all_leads = web_forms + emails + ad_platform
+
+    # Demo dedup fixtures (Fix M1): two extra ingests that intentionally reuse
+    # an existing lead's identifier field, so the derived source_ref collides.
+    # dup: identical raw_data -> same-data duplicate (HTTP 200, duplicate_count++).
+    # conflict: same identifier, different fields -> conflicting duplicate (HTTP 409).
+    dup_target = web_forms[0]
+    same_data_duplicate = {
+        "source_type": "web_form",
+        "raw_data": dict(dup_target["raw_data"]),
+    }
+
+    conflict_target = emails[0]
+    conflicting_duplicate = {
+        "source_type": "email",
+        "raw_data": {
+            **conflict_target["raw_data"],
+            "sender_name": "Alex Impersonator",
+            "sender_email": "alex.impersonator@example.com",
+            "subject": "Re: following up on our conversation",
+        },
+    }
+
+    all_leads.append(same_data_duplicate)
+    all_leads.append(conflicting_duplicate)
+
     random.shuffle(all_leads)
 
     output_path = os.path.join(os.path.dirname(__file__), "raw_inputs.json")

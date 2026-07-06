@@ -2,52 +2,27 @@
   {
     "source_type": "ad_platform",
     "raw_data": {
-      "campaign_id": "SMB_Growth",
-      "ad_id": "AD-3015",
-      "lead_name": "Alice Garcia",
-      "lead_email": "alice.garcia@leads.io",
-      "company_size": "enterprise",
-      "industry": null,
-      "platform": "Google Ads",
-      "clicked_at": "2026-06-05T00:40:48"
-    }
-  },
-  {
-    "source_type": "ad_platform",
-    "raw_data": {
-      "campaign_id": "Brand_Awareness",
-      "ad_id": "AD-3002",
-      "lead_name": "Rachel Singh",
-      "lead_email": "rachel.singh@leads.io",
-      "company_size": null,
-      "industry": "logistics",
-      "platform": "Twitter",
-      "clicked_at": "2026-05-29T19:14:48"
-    }
-  },
-  {
-    "source_type": "ad_platform",
-    "raw_data": {
       "campaign_id": "Enterprise_Reach",
-      "ad_id": "AD-3004",
-      "lead_name": "Tara Nakamura",
-      "lead_email": "tara.nakamura@leads.io",
-      "company_size": null,
-      "industry": "legal",
-      "platform": "Google Ads",
-      "clicked_at": "2026-06-13T01:42:48"
+      "ad_id": "AD-3017",
+      "lead_name": "Iris Garcia",
+      "lead_email": "iris.garcia@leads.io",
+      "company_size": "startup",
+      "industry": "logistics",
+      "platform": "TikTok",
+      "clicked_at": "2026-06-27T20:30:29"
     }
   },
   {
-    "source_type": "email",
+    "source_type": "ad_platform",
     "raw_data": {
-      "message_id": "MSG-2009",
-      "sender_name": "Clara Patel",
-      "sender_email": "clara.patel@vertexdigital.co",
-      "subject": "CRM workflow inquiry from our team",
-      "body_snippet": "Looking to automate our lead qualification process. Would love to discuss.",
-      "company_domain": "vertexdigital.co",
-      "received_at": "2026-05-30T09:10:48"
+      "campaign_id": "SMB_Growth",
+      "ad_id": "AD-3012",
+      "lead_name": "Elena Patel",
+      "lead_email": "elena.patel@leads.io",
+      "company_size": "mid-market",
+      "industry": "saas",
+      "platform": "TikTok",
+      "clicked_at": "2026-06-25T05:31:29"
     }
   },
   {
@@ -61,162 +36,7 @@
       "phone": "+356 99662275",
       "message": "We're looking for a scalable CRM workflow system for our sales team.",
       "utm_source": "organic",
-      "submitted_at": "2026-06-16T12:25:48"
-    }
-  },
-  {
-    "source_type": "ad_platform",
-    "raw_data": {
-      "campaign_id": "Enterprise_Reach",
-      "ad_id": "AD-3016",
-      "lead_name": "Iris Garcia",
-      "lead_email": "iris.garcia@leads.io",
-      "company_size": "startup",
-      "industry": "logistics",
-      "platform": "TikTok",
-      "clicked_at": "2026-06-11T03:13:48"
-    }
-  },
-  {
-    "source_type": "web_form",
-    "raw_data": {
-      "form_id": "WF-1024",
-      "first_name": "David",
-      "last_name": "Patel",
-      "email": "david.patel@workmail.com",
-      "company": "Cobalt Digital",
-      "phone": "+356 99542374",
-      "message": "Can we book a demo for next week?",
-      "utm_source": "referral",
-      "submitted_at": "2026-06-04T21:48:48"
-    }
-  },
-  {
-    "source_type": "email",
-    "raw_data": {
-      "message_id": "MSG-2024",
-      "sender_name": "Rachel Tanaka",
-      "sender_email": "rachel.tanaka@bluepeak.com",
-      "subject": "Re: integrations with HubSpot",
-      "body_snippet": "Could you share a case study relevant to our industry?",
-      "company_domain": "bluepeak.com",
-      "received_at": "2026-06-16T07:45:48"
-    }
-  },
-  {
-    "source_type": "ad_platform",
-    "raw_data": {
-      "campaign_id": "Q1_ROI_Push",
-      "ad_id": "AD-3003",
-      "lead_name": "Olivia Williams",
-      "lead_email": "olivia.williams@leads.io",
-      "company_size": "solo",
-      "industry": "healthcare",
-      "platform": "Meta",
-      "clicked_at": "2026-06-02T08:03:48"
-    }
-  },
-  {
-    "source_type": "email",
-    "raw_data": {
-      "message_id": "MSG-2004",
-      "sender_name": "Quinn Singh",
-      "sender_email": "quinn.singh@apexsol.com",
-      "subject": "Partnership inquiry \u2014 workflow automation",
-      "body_snippet": "Our current tool is not meeting our needs. Happy to jump on a call this week.",
-      "company_domain": "apexsol.com",
-      "received_at": "2026-06-16T10:39:48"
-    }
-  },
-  {
-    "source_type": "web_form",
-    "raw_data": {
-      "form_id": "WF-1002",
-      "first_name": "Rachel",
-      "last_name": "Patel",
-      "email": "rachel.patel@workmail.com",
-      "company": "Cobalt Digital",
-      "phone": "+356 99571029",
-      "message": null,
-      "utm_source": "referral",
-      "submitted_at": "2026-06-18T23:59:48"
-    }
-  },
-  {
-    "source_type": "email",
-    "raw_data": {
-      "message_id": "MSG-2012",
-      "sender_name": "Uma Singh",
-      "sender_email": "uma.singh@nimbussys.com",
-      "subject": "Quick question about your pricing",
-      "body_snippet": "Hi, we're evaluating automation tools for our sales pipeline. Can we schedule a demo?",
-      "company_domain": "nimbussys.com",
-      "received_at": "2026-06-16T09:16:48"
-    }
-  },
-  {
-    "source_type": "ad_platform",
-    "raw_data": {
-      "campaign_id": "Enterprise_Reach",
-      "ad_id": "AD-3023",
-      "lead_name": "Uma Singh",
-      "lead_email": "uma.singh@leads.io",
-      "company_size": "mid-market",
-      "industry": "education",
-      "platform": "Twitter",
-      "clicked_at": "2026-06-01T14:14:48"
-    }
-  },
-  {
-    "source_type": "email",
-    "raw_data": {
-      "message_id": "MSG-2014",
-      "sender_name": "Rachel Romero",
-      "sender_email": "rachel.romero@apexsol.com",
-      "subject": "Partnership inquiry \u2014 workflow automation",
-      "body_snippet": "We have a team of 50+ and are looking for a scalable CRM workflow system.",
-      "company_domain": "apexsol.com",
-      "received_at": "2026-06-14T12:41:48"
-    }
-  },
-  {
-    "source_type": "ad_platform",
-    "raw_data": {
-      "campaign_id": "Q1_ROI_Push",
-      "ad_id": "AD-3024",
-      "lead_name": "Noel Singh",
-      "lead_email": "noel.singh@leads.io",
-      "company_size": "smb",
-      "industry": "legal",
-      "platform": "Meta",
-      "clicked_at": "2026-06-04T21:55:48"
-    }
-  },
-  {
-    "source_type": "web_form",
-    "raw_data": {
-      "form_id": "WF-1006",
-      "first_name": "Hugo",
-      "last_name": "Singh",
-      "email": "hugo.singh@workmail.com",
-      "company": null,
-      "phone": null,
-      "message": null,
-      "utm_source": "referral",
-      "submitted_at": "2026-06-13T18:21:48"
-    }
-  },
-  {
-    "source_type": "ad_platform",
-    "raw_data": {
-      "campaign_id": "Q1_ROI_Push",
-      "ad_id": "AD-3020",
-      "lead_name": "James Kova\u010d",
-      "lead_email": "james.kova\u010d@leads.io",
-      "company_size": "startup",
-      "industry": "legal",
-      "platform": "Twitter",
-      "clicked_at": "2026-05-29T22:37:48"
+      "submitted_at": "2026-07-03T05:42:29"
     }
   },
   {
@@ -230,206 +50,110 @@
       "phone": "+356 99279451",
       "message": null,
       "utm_source": "linkedin",
-      "submitted_at": "2026-06-13T15:19:48"
+      "submitted_at": "2026-06-30T08:36:29"
+    }
+  },
+  {
+    "source_type": "email",
+    "raw_data": {
+      "message_id": "MSG-2022",
+      "sender_name": "Alice Tanaka",
+      "sender_email": "alice.tanaka@alicetanaka.com",
+      "subject": "Re: integrations with HubSpot",
+      "body_snippet": "Looking to automate our lead qualification process. Would love to discuss.",
+      "company_domain": null,
+      "received_at": "2026-07-03T14:38:29"
     }
   },
   {
     "source_type": "web_form",
     "raw_data": {
-      "form_id": "WF-1020",
+      "form_id": "WF-1006",
+      "first_name": "Hugo",
+      "last_name": "Singh",
+      "email": "hugo.singh@workmail.com",
+      "company": null,
+      "phone": null,
+      "message": null,
+      "utm_source": "referral",
+      "submitted_at": "2026-06-30T11:38:29"
+    }
+  },
+  {
+    "source_type": "email",
+    "raw_data": {
+      "message_id": "MSG-2000",
+      "sender_name": "David Patel",
+      "sender_email": "david.patel@davidpatel.com",
+      "subject": "CRM workflow inquiry from our team",
+      "body_snippet": "Our current tool is not meeting our needs. Happy to jump on a call this week.",
+      "company_domain": null,
+      "received_at": "2026-06-22T17:43:29"
+    }
+  },
+  {
+    "source_type": "web_form",
+    "raw_data": {
+      "form_id": "WF-1002",
       "first_name": "Rachel",
       "last_name": "Patel",
       "email": "rachel.patel@workmail.com",
-      "company": "Apex Solutions",
-      "phone": null,
-      "message": null,
-      "utm_source": "google",
-      "submitted_at": "2026-06-12T02:46:48"
-    }
-  },
-  {
-    "source_type": "web_form",
-    "raw_data": {
-      "form_id": "WF-1009",
-      "first_name": "Iris",
-      "last_name": "Morgan",
-      "email": "iris.morgan@workmail.com",
-      "company": "Ember Analytics",
-      "phone": "+356 99429963",
-      "message": "Can we book a demo for next week?",
-      "utm_source": "organic",
-      "submitted_at": "2026-06-06T09:14:48"
-    }
-  },
-  {
-    "source_type": "web_form",
-    "raw_data": {
-      "form_id": "WF-1008",
-      "first_name": "Iris",
-      "last_name": "Tanaka",
-      "email": "iris.tanaka@workmail.com",
-      "company": "Nimbus Systems",
-      "phone": "+356 99983794",
-      "message": "We're looking for a scalable CRM workflow system for our sales team.",
-      "utm_source": "linkedin",
-      "submitted_at": "2026-06-17T19:18:48"
-    }
-  },
-  {
-    "source_type": "email",
-    "raw_data": {
-      "message_id": "MSG-2011",
-      "sender_name": "David Romero",
-      "sender_email": "david.romero@coreflow.io",
-      "subject": "Quick question about your pricing",
-      "body_snippet": "We came across your platform via a referral. Please send over pricing details.",
-      "company_domain": "coreflow.io",
-      "received_at": "2026-06-08T23:00:48"
-    }
-  },
-  {
-    "source_type": "web_form",
-    "raw_data": {
-      "form_id": "WF-1022",
-      "first_name": "Sam",
-      "last_name": "Kova\u010d",
-      "email": "sam.kova\u010d@workmail.com",
-      "company": "SilverLine Corp",
-      "phone": "+356 99299659",
-      "message": "We're looking for a scalable CRM workflow system for our sales team.",
-      "utm_source": "google",
-      "submitted_at": "2026-06-05T18:16:48"
-    }
-  },
-  {
-    "source_type": "email",
-    "raw_data": {
-      "message_id": "MSG-2015",
-      "sender_name": "Leo Kova\u010d",
-      "sender_email": "leo.kova\u010d@deltaops.com",
-      "subject": "Demo request for our ops team",
-      "body_snippet": "Hi, we're evaluating automation tools for our sales pipeline. Can we schedule a demo?",
-      "company_domain": "deltaops.com",
-      "received_at": "2026-06-09T17:46:48"
-    }
-  },
-  {
-    "source_type": "web_form",
-    "raw_data": {
-      "form_id": "WF-1010",
-      "first_name": "Elena",
-      "last_name": "Kowalski",
-      "email": "elena.kowalski@workmail.com",
-      "company": null,
-      "phone": "+356 99665158",
-      "message": "Interested in enterprise pricing and integration options.",
-      "utm_source": "email_campaign",
-      "submitted_at": "2026-06-05T11:18:48"
-    }
-  },
-  {
-    "source_type": "email",
-    "raw_data": {
-      "message_id": "MSG-2017",
-      "sender_name": "Elena Patel",
-      "sender_email": "elena.patel@vertexdigital.co",
-      "subject": "Request for enterprise proposal",
-      "body_snippet": "Hi, we're evaluating automation tools for our sales pipeline. Can we schedule a demo?",
-      "company_domain": "vertexdigital.co",
-      "received_at": "2026-06-13T05:44:48"
-    }
-  },
-  {
-    "source_type": "email",
-    "raw_data": {
-      "message_id": "MSG-2007",
-      "sender_name": "Maria Chen",
-      "sender_email": "maria.chen@coreflow.io",
-      "subject": "CRM workflow inquiry from our team",
-      "body_snippet": "We run a lean ops team and need something that integrates with our existing stack.",
-      "company_domain": "coreflow.io",
-      "received_at": "2026-06-17T05:14:48"
-    }
-  },
-  {
-    "source_type": "web_form",
-    "raw_data": {
-      "form_id": "WF-1013",
-      "first_name": "Alice",
-      "last_name": "Tanaka",
-      "email": "alice.tanaka@workmail.com",
       "company": "Cobalt Digital",
-      "phone": "+356 99905934",
+      "phone": "+356 99571029",
       "message": null,
       "utm_source": "referral",
-      "submitted_at": "2026-06-15T20:16:48"
-    }
-  },
-  {
-    "source_type": "web_form",
-    "raw_data": {
-      "form_id": "WF-1011",
-      "first_name": "Leo",
-      "last_name": "Patel",
-      "email": "leo.patel@workmail.com",
-      "company": "CoreFlow",
-      "phone": "+356 99195325",
-      "message": "We're looking for a scalable CRM workflow system for our sales team.",
-      "utm_source": "google",
-      "submitted_at": "2026-06-14T09:33:48"
-    }
-  },
-  {
-    "source_type": "web_form",
-    "raw_data": {
-      "form_id": "WF-1016",
-      "first_name": "Alice",
-      "last_name": "Kova\u010d",
-      "email": "alice.kova\u010d@workmail.com",
-      "company": "Apex Solutions",
-      "phone": null,
-      "message": "Interested in enterprise pricing and integration options.",
-      "utm_source": "referral",
-      "submitted_at": "2026-06-12T04:28:48"
+      "submitted_at": "2026-07-05T17:16:29"
     }
   },
   {
     "source_type": "ad_platform",
     "raw_data": {
       "campaign_id": "SMB_Growth",
-      "ad_id": "AD-3007",
-      "lead_name": "Wendy Osei",
-      "lead_email": "wendy.osei@leads.io",
-      "company_size": "solo",
-      "industry": "saas",
+      "ad_id": "AD-3016",
+      "lead_name": "Alice Garcia",
+      "lead_email": "alice.garcia@leads.io",
+      "company_size": "enterprise",
+      "industry": null,
       "platform": "Google Ads",
-      "clicked_at": "2026-06-04T08:10:48"
+      "clicked_at": "2026-06-21T17:57:29"
     }
   },
   {
     "source_type": "ad_platform",
     "raw_data": {
-      "campaign_id": "Q1_ROI_Push",
-      "ad_id": "AD-3021",
-      "lead_name": "Wendy M\u00fcller",
-      "lead_email": "wendy.m\u00fcller@leads.io",
-      "company_size": "solo",
-      "industry": "manufacturing",
-      "platform": "Meta",
-      "clicked_at": "2026-06-01T16:01:48"
-    }
-  },
-  {
-    "source_type": "ad_platform",
-    "raw_data": {
-      "campaign_id": "Q1_ROI_Push",
-      "ad_id": "AD-3017",
-      "lead_name": "Alice Romero",
-      "lead_email": "alice.romero@leads.io",
-      "company_size": "smb",
-      "industry": "saas",
+      "campaign_id": "Enterprise_Reach",
+      "ad_id": "AD-3020",
+      "lead_name": "Leo Chen",
+      "lead_email": "leo.chen@leads.io",
+      "company_size": "enterprise",
+      "industry": "healthcare",
       "platform": "LinkedIn",
-      "clicked_at": "2026-06-11T22:50:48"
+      "clicked_at": "2026-06-17T22:01:29"
+    }
+  },
+  {
+    "source_type": "ad_platform",
+    "raw_data": {
+      "campaign_id": "Enterprise_Reach",
+      "ad_id": "AD-3024",
+      "lead_name": "Uma Singh",
+      "lead_email": "uma.singh@leads.io",
+      "company_size": "mid-market",
+      "industry": "education",
+      "platform": "Twitter",
+      "clicked_at": "2026-06-18T07:31:29"
+    }
+  },
+  {
+    "source_type": "email",
+    "raw_data": {
+      "message_id": "MSG-2013",
+      "sender_name": "David Romero",
+      "sender_email": "david.romero@coreflow.io",
+      "subject": "Quick question about your pricing",
+      "body_snippet": "We came across your platform via a referral. Please send over pricing details.",
+      "company_domain": "coreflow.io",
+      "received_at": "2026-06-25T16:17:29"
     }
   },
   {
@@ -443,432 +167,82 @@
       "phone": "+356 99359947",
       "message": "Can we book a demo for next week?",
       "utm_source": "google",
-      "submitted_at": "2026-06-09T05:06:48"
+      "submitted_at": "2026-06-25T22:23:29"
+    }
+  },
+  {
+    "source_type": "email",
+    "raw_data": {
+      "message_id": "MSG-2012",
+      "sender_name": "Alice Tanaka",
+      "sender_email": "alice.tanaka@coreflow.io",
+      "subject": "Partnership inquiry \u2014 workflow automation",
+      "body_snippet": "Our current tool is not meeting our needs. Happy to jump on a call this week.",
+      "company_domain": "coreflow.io",
+      "received_at": "2026-06-27T19:04:29"
     }
   },
   {
     "source_type": "ad_platform",
     "raw_data": {
       "campaign_id": "Spring_Demo",
-      "ad_id": "AD-3014",
+      "ad_id": "AD-3015",
       "lead_name": "Noel Williams",
       "lead_email": "noel.williams@leads.io",
       "company_size": null,
       "industry": "logistics",
       "platform": "TikTok",
-      "clicked_at": "2026-06-14T10:09:48"
-    }
-  },
-  {
-    "source_type": "email",
-    "raw_data": {
-      "message_id": "MSG-2000",
-      "sender_name": "Clara Williams",
-      "sender_email": "clara.williams@novatech.io",
-      "subject": "Interested in your automation platform",
-      "body_snippet": "Hi, we're evaluating automation tools for our sales pipeline. Can we schedule a demo?",
-      "company_domain": "novatech.io",
-      "received_at": "2026-06-16T22:33:48"
-    }
-  },
-  {
-    "source_type": "web_form",
-    "raw_data": {
-      "form_id": "WF-1014",
-      "first_name": "Frank",
-      "last_name": "Williams",
-      "email": "frank.williams@workmail.com",
-      "company": null,
-      "phone": "+356 99854639",
-      "message": "Interested in enterprise pricing and integration options.",
-      "utm_source": "email_campaign",
-      "submitted_at": "2026-06-13T12:45:48"
-    }
-  },
-  {
-    "source_type": "web_form",
-    "raw_data": {
-      "form_id": "WF-1018",
-      "first_name": "Rachel",
-      "last_name": "Chen",
-      "email": "rachel.chen@workmail.com",
-      "company": "Frost Dynamics",
-      "phone": "+356 99322086",
-      "message": null,
-      "utm_source": "linkedin",
-      "submitted_at": "2026-06-09T17:01:48"
-    }
-  },
-  {
-    "source_type": "ad_platform",
-    "raw_data": {
-      "campaign_id": "Spring_Demo",
-      "ad_id": "AD-3001",
-      "lead_name": "Wendy Kowalski",
-      "lead_email": "wendy.kowalski@leads.io",
-      "company_size": "mid-market",
-      "industry": "logistics",
-      "platform": "Twitter",
-      "clicked_at": "2026-05-31T20:18:48"
-    }
-  },
-  {
-    "source_type": "web_form",
-    "raw_data": {
-      "form_id": "WF-1001",
-      "first_name": "Rachel",
-      "last_name": "Morgan",
-      "email": "rachel.morgan@workmail.com",
-      "company": "NovaTech",
-      "phone": null,
-      "message": "Can we book a demo for next week?",
-      "utm_source": "linkedin",
-      "submitted_at": "2026-06-02T10:42:48"
-    }
-  },
-  {
-    "source_type": "email",
-    "raw_data": {
-      "message_id": "MSG-2003",
-      "sender_name": "Grace Taylor",
-      "sender_email": "grace.taylor@apexsol.com",
-      "subject": "Re: integrations with HubSpot",
-      "body_snippet": "Hi, we're evaluating automation tools for our sales pipeline. Can we schedule a demo?",
-      "company_domain": "apexsol.com",
-      "received_at": "2026-06-17T11:13:48"
-    }
-  },
-  {
-    "source_type": "email",
-    "raw_data": {
-      "message_id": "MSG-2022",
-      "sender_name": "Iris Taylor",
-      "sender_email": "iris.taylor@iristaylor.com",
-      "subject": "Request for enterprise proposal",
-      "body_snippet": "We run a lean ops team and need something that integrates with our existing stack.",
-      "company_domain": null,
-      "received_at": "2026-06-08T16:05:48"
-    }
-  },
-  {
-    "source_type": "ad_platform",
-    "raw_data": {
-      "campaign_id": "Brand_Awareness",
-      "ad_id": "AD-3018",
-      "lead_name": "Alice Kova\u010d",
-      "lead_email": "alice.kova\u010d@leads.io",
-      "company_size": "mid-market",
-      "industry": "saas",
-      "platform": "Google Ads",
-      "clicked_at": "2026-06-04T07:27:48"
+      "clicked_at": "2026-07-01T03:26:29"
     }
   },
   {
     "source_type": "email",
     "raw_data": {
       "message_id": "MSG-2005",
-      "sender_name": "Victor Singh",
-      "sender_email": "victor.singh@novatech.io",
-      "subject": "Evaluating CRM tools for Q2",
+      "sender_name": "Sam Romero",
+      "sender_email": "sam.romero@prismanalytics.com",
+      "subject": "Interested in your automation platform",
       "body_snippet": "Hi, we're evaluating automation tools for our sales pipeline. Can we schedule a demo?",
-      "company_domain": "novatech.io",
-      "received_at": "2026-05-31T03:17:48"
-    }
-  },
-  {
-    "source_type": "ad_platform",
-    "raw_data": {
-      "campaign_id": "SMB_Growth",
-      "ad_id": "AD-3008",
-      "lead_name": "Rachel Kova\u010d",
-      "lead_email": "rachel.kova\u010d@leads.io",
-      "company_size": "startup",
-      "industry": "education",
-      "platform": "Twitter",
-      "clicked_at": "2026-06-04T23:56:48"
-    }
-  },
-  {
-    "source_type": "ad_platform",
-    "raw_data": {
-      "campaign_id": "Brand_Awareness",
-      "ad_id": "AD-3000",
-      "lead_name": "Kate Kova\u010d",
-      "lead_email": "kate.kova\u010d@leads.io",
-      "company_size": "enterprise",
-      "industry": "e-commerce",
-      "platform": "Meta",
-      "clicked_at": "2026-06-05T19:18:48"
-    }
-  },
-  {
-    "source_type": "ad_platform",
-    "raw_data": {
-      "campaign_id": "SMB_Growth",
-      "ad_id": "AD-3005",
-      "lead_name": "Ben Patel",
-      "lead_email": "ben.patel@leads.io",
-      "company_size": "solo",
-      "industry": "saas",
-      "platform": "TikTok",
-      "clicked_at": "2026-05-29T11:31:48"
-    }
-  },
-  {
-    "source_type": "email",
-    "raw_data": {
-      "message_id": "MSG-2006",
-      "sender_name": "Victor Kova\u010d",
-      "sender_email": "victor.kova\u010d@prismanalytics.com",
-      "subject": "Quick question about your pricing",
-      "body_snippet": "We came across your platform via a referral. Please send over pricing details.",
       "company_domain": "prismanalytics.com",
-      "received_at": "2026-06-08T22:27:48"
+      "received_at": "2026-06-17T07:28:29"
     }
   },
   {
     "source_type": "email",
     "raw_data": {
-      "message_id": "MSG-2001",
-      "sender_name": "Noel Williams",
-      "sender_email": "noel.williams@deltaops.com",
-      "subject": "Interested in your automation platform",
-      "body_snippet": "Our current tool is not meeting our needs. Happy to jump on a call this week.",
-      "company_domain": "deltaops.com",
-      "received_at": "2026-06-07T05:19:48"
-    }
-  },
-  {
-    "source_type": "email",
-    "raw_data": {
-      "message_id": "MSG-2021",
-      "sender_name": "Uma Osei",
-      "sender_email": "uma.osei@prismanalytics.com",
-      "subject": "Interested in your automation platform",
-      "body_snippet": "We have a team of 50+ and are looking for a scalable CRM workflow system.",
-      "company_domain": "prismanalytics.com",
-      "received_at": "2026-06-11T00:06:48"
-    }
-  },
-  {
-    "source_type": "web_form",
-    "raw_data": {
-      "form_id": "WF-1015",
-      "first_name": "David",
-      "last_name": "Singh",
-      "email": "david.singh@workmail.com",
-      "company": "IronGate Ltd",
-      "phone": "+356 99260263",
-      "message": "Interested in enterprise pricing and integration options.",
-      "utm_source": "linkedin",
-      "submitted_at": "2026-06-01T12:45:48"
-    }
-  },
-  {
-    "source_type": "web_form",
-    "raw_data": {
-      "form_id": "WF-1005",
-      "first_name": "Uma",
-      "last_name": "Kova\u010d",
-      "email": "uma.kova\u010d@workmail.com",
-      "company": "Meridian AI",
-      "phone": "+356 99838797",
-      "message": "We're looking for a scalable CRM workflow system for our sales team.",
-      "utm_source": "google",
-      "submitted_at": "2026-06-11T20:38:48"
-    }
-  },
-  {
-    "source_type": "web_form",
-    "raw_data": {
-      "form_id": "WF-1012",
-      "first_name": "Victor",
-      "last_name": "Garcia",
-      "email": "victor.garcia@workmail.com",
-      "company": "Pinnacle SaaS",
-      "phone": null,
-      "message": "We currently use HubSpot and are evaluating alternatives.",
-      "utm_source": "email_campaign",
-      "submitted_at": "2026-06-10T11:48:48"
-    }
-  },
-  {
-    "source_type": "ad_platform",
-    "raw_data": {
-      "campaign_id": "Enterprise_Reach",
-      "ad_id": "AD-3019",
-      "lead_name": "Leo Chen",
-      "lead_email": "leo.chen@leads.io",
-      "company_size": "enterprise",
-      "industry": "healthcare",
-      "platform": "LinkedIn",
-      "clicked_at": "2026-06-01T04:44:48"
-    }
-  },
-  {
-    "source_type": "web_form",
-    "raw_data": {
-      "form_id": "WF-1000",
-      "first_name": "Uma",
-      "last_name": "Morgan",
-      "email": "uma.morgan@workmail.com",
-      "company": null,
-      "phone": null,
-      "message": "Can we book a demo for next week?",
-      "utm_source": "linkedin",
-      "submitted_at": "2026-06-15T07:56:48"
-    }
-  },
-  {
-    "source_type": "email",
-    "raw_data": {
-      "message_id": "MSG-2010",
-      "sender_name": "Alice Tanaka",
-      "sender_email": "alice.tanaka@coreflow.io",
-      "subject": "Partnership inquiry \u2014 workflow automation",
-      "body_snippet": "Our current tool is not meeting our needs. Happy to jump on a call this week.",
-      "company_domain": "coreflow.io",
-      "received_at": "2026-06-11T01:47:48"
-    }
-  },
-  {
-    "source_type": "ad_platform",
-    "raw_data": {
-      "campaign_id": "SMB_Growth",
-      "ad_id": "AD-3011",
-      "lead_name": "Maria Romero",
-      "lead_email": "maria.romero@leads.io",
-      "company_size": "mid-market",
-      "industry": null,
-      "platform": "Meta",
-      "clicked_at": "2026-06-01T15:17:48"
-    }
-  },
-  {
-    "source_type": "ad_platform",
-    "raw_data": {
-      "campaign_id": "Brand_Awareness",
-      "ad_id": "AD-3010",
-      "lead_name": "Olivia Morgan",
-      "lead_email": "olivia.morgan@leads.io",
-      "company_size": "mid-market",
-      "industry": "insurance",
-      "platform": "LinkedIn",
-      "clicked_at": "2026-06-15T01:29:48"
-    }
-  },
-  {
-    "source_type": "email",
-    "raw_data": {
-      "message_id": "MSG-2019",
-      "sender_name": "Ben Singh",
-      "sender_email": "ben.singh@bluepeak.com",
-      "subject": "CRM workflow inquiry from our team",
-      "body_snippet": "We run a lean ops team and need something that integrates with our existing stack.",
-      "company_domain": "bluepeak.com",
-      "received_at": "2026-06-09T22:29:48"
-    }
-  },
-  {
-    "source_type": "email",
-    "raw_data": {
-      "message_id": "MSG-2013",
+      "message_id": "MSG-2015",
       "sender_name": "Iris Taylor",
       "sender_email": "iris.taylor@iristaylor.com",
       "subject": "Demo request for our ops team",
       "body_snippet": "Looking to automate our lead qualification process. Would love to discuss.",
       "company_domain": null,
-      "received_at": "2026-06-13T06:15:48"
-    }
-  },
-  {
-    "source_type": "ad_platform",
-    "raw_data": {
-      "campaign_id": "Q1_ROI_Push",
-      "ad_id": "AD-3006",
-      "lead_name": "Wendy Romero",
-      "lead_email": "wendy.romero@leads.io",
-      "company_size": "startup",
-      "industry": "fintech",
-      "platform": "TikTok",
-      "clicked_at": "2026-06-11T23:52:48"
+      "received_at": "2026-06-29T23:32:29"
     }
   },
   {
     "source_type": "web_form",
     "raw_data": {
-      "form_id": "WF-1017",
-      "first_name": "Sam",
-      "last_name": "Morgan",
-      "email": "sam.morgan@workmail.com",
-      "company": null,
-      "phone": "+356 99172574",
-      "message": null,
+      "form_id": "WF-1008",
+      "first_name": "Iris",
+      "last_name": "Tanaka",
+      "email": "iris.tanaka@workmail.com",
+      "company": "Nimbus Systems",
+      "phone": "+356 99983794",
+      "message": "We're looking for a scalable CRM workflow system for our sales team.",
       "utm_source": "linkedin",
-      "submitted_at": "2026-06-14T08:13:48"
-    }
-  },
-  {
-    "source_type": "web_form",
-    "raw_data": {
-      "form_id": "WF-1021",
-      "first_name": "Ben",
-      "last_name": "Singh",
-      "email": "ben.singh@workmail.com",
-      "company": "IronGate Ltd",
-      "phone": null,
-      "message": null,
-      "utm_source": "organic",
-      "submitted_at": "2026-06-12T12:35:48"
+      "submitted_at": "2026-07-04T12:35:29"
     }
   },
   {
     "source_type": "email",
     "raw_data": {
-      "message_id": "MSG-2008",
-      "sender_name": "Tara Kova\u010d",
-      "sender_email": "tara.kova\u010d@novatech.io",
-      "subject": "Evaluating CRM tools for Q2",
-      "body_snippet": "Looking to automate our lead qualification process. Would love to discuss.",
-      "company_domain": "novatech.io",
-      "received_at": "2026-06-14T17:47:48"
-    }
-  },
-  {
-    "source_type": "email",
-    "raw_data": {
-      "message_id": "MSG-2020",
-      "sender_name": "Alice Tanaka",
-      "sender_email": "alice.tanaka@alicetanaka.com",
-      "subject": "Re: integrations with HubSpot",
-      "body_snippet": "Looking to automate our lead qualification process. Would love to discuss.",
-      "company_domain": null,
-      "received_at": "2026-06-16T21:21:48"
-    }
-  },
-  {
-    "source_type": "email",
-    "raw_data": {
-      "message_id": "MSG-2002",
-      "sender_name": "Iris M\u00fcller",
-      "sender_email": "iris.m\u00fcller@coreflow.io",
-      "subject": "Request for enterprise proposal",
-      "body_snippet": "We have budget approved and are ready to move quickly if there's a good fit.",
-      "company_domain": "coreflow.io",
-      "received_at": "2026-06-14T23:25:48"
-    }
-  },
-  {
-    "source_type": "ad_platform",
-    "raw_data": {
-      "campaign_id": "Q1_ROI_Push",
-      "ad_id": "AD-3012",
-      "lead_name": "Ben Patel",
-      "lead_email": "ben.patel@leads.io",
-      "company_size": "startup",
-      "industry": "manufacturing",
-      "platform": "Twitter",
-      "clicked_at": "2026-06-06T14:43:48"
+      "message_id": "MSG-2023",
+      "sender_name": "Uma Osei",
+      "sender_email": "uma.osei@prismanalytics.com",
+      "subject": "Interested in your automation platform",
+      "body_snippet": "We have a team of 50+ and are looking for a scalable CRM workflow system.",
+      "company_domain": "prismanalytics.com",
+      "received_at": "2026-06-27T17:23:29"
     }
   },
   {
@@ -882,32 +256,582 @@
       "phone": "+356 99777568",
       "message": "We're looking for a scalable CRM workflow system for our sales team.",
       "utm_source": "google",
-      "submitted_at": "2026-06-06T06:22:48"
+      "submitted_at": "2026-06-22T23:39:29"
+    }
+  },
+  {
+    "source_type": "web_form",
+    "raw_data": {
+      "form_id": "WF-1010",
+      "first_name": "Elena",
+      "last_name": "Kowalski",
+      "email": "elena.kowalski@workmail.com",
+      "company": null,
+      "phone": "+356 99665158",
+      "message": "Interested in enterprise pricing and integration options.",
+      "utm_source": "email_campaign",
+      "submitted_at": "2026-06-22T04:35:29"
     }
   },
   {
     "source_type": "email",
     "raw_data": {
-      "message_id": "MSG-2016",
-      "sender_name": "Ben Nakamura",
-      "sender_email": "ben.nakamura@bluepeak.com",
-      "subject": "Partnership inquiry \u2014 workflow automation",
-      "body_snippet": "We run a lean ops team and need something that integrates with our existing stack.",
-      "company_domain": "bluepeak.com",
-      "received_at": "2026-06-01T16:04:48"
+      "message_id": "MSG-2008",
+      "sender_name": "Victor Kova\u010d",
+      "sender_email": "victor.kova\u010d@prismanalytics.com",
+      "subject": "Quick question about your pricing",
+      "body_snippet": "We came across your platform via a referral. Please send over pricing details.",
+      "company_domain": "prismanalytics.com",
+      "received_at": "2026-06-25T15:44:29"
     }
   },
   {
     "source_type": "ad_platform",
     "raw_data": {
       "campaign_id": "Brand_Awareness",
+      "ad_id": "AD-3009",
+      "lead_name": "Olivia Tanaka",
+      "lead_email": "olivia.tanaka@leads.io",
+      "company_size": "solo",
+      "industry": "real-estate",
+      "platform": "Twitter",
+      "clicked_at": "2026-06-22T05:32:29"
+    }
+  },
+  {
+    "source_type": "email",
+    "raw_data": {
+      "message_id": "MSG-2003",
+      "sender_name": "Maria Taylor",
+      "sender_email": "maria.taylor@mariataylor.com",
+      "subject": "Interested in your automation platform",
+      "body_snippet": "Could you share a case study relevant to our industry?",
+      "company_domain": null,
+      "received_at": "2026-06-27T08:42:29"
+    }
+  },
+  {
+    "source_type": "email",
+    "raw_data": {
+      "message_id": "MSG-2000",
+      "sender_name": "Alex Impersonator",
+      "sender_email": "alex.impersonator@example.com",
+      "subject": "Re: following up on our conversation",
+      "body_snippet": "Our current tool is not meeting our needs. Happy to jump on a call this week.",
+      "company_domain": null,
+      "received_at": "2026-06-22T17:43:29"
+    }
+  },
+  {
+    "source_type": "ad_platform",
+    "raw_data": {
+      "campaign_id": "Brand_Awareness",
+      "ad_id": "AD-3001",
+      "lead_name": "Victor Patel",
+      "lead_email": "victor.patel@leads.io",
+      "company_size": "enterprise",
+      "industry": "insurance",
+      "platform": "Meta",
+      "clicked_at": "2026-07-01T23:03:29"
+    }
+  },
+  {
+    "source_type": "ad_platform",
+    "raw_data": {
+      "campaign_id": "SMB_Growth",
+      "ad_id": "AD-3003",
+      "lead_name": "Maria Tanaka",
+      "lead_email": "maria.tanaka@leads.io",
+      "company_size": "mid-market",
+      "industry": "e-commerce",
+      "platform": "Twitter",
+      "clicked_at": "2026-07-05T13:42:29"
+    }
+  },
+  {
+    "source_type": "ad_platform",
+    "raw_data": {
+      "campaign_id": "Enterprise_Reach",
+      "ad_id": "AD-3011",
+      "lead_name": "Iris Williams",
+      "lead_email": "iris.williams@leads.io",
+      "company_size": null,
+      "industry": "e-commerce",
+      "platform": "Meta",
+      "clicked_at": "2026-06-18T20:52:29"
+    }
+  },
+  {
+    "source_type": "web_form",
+    "raw_data": {
+      "form_id": "WF-1000",
+      "first_name": "Uma",
+      "last_name": "Morgan",
+      "email": "uma.morgan@workmail.com",
+      "company": null,
+      "phone": null,
+      "message": "Can we book a demo for next week?",
+      "utm_source": "linkedin",
+      "submitted_at": "2026-07-02T01:13:29"
+    }
+  },
+  {
+    "source_type": "ad_platform",
+    "raw_data": {
+      "campaign_id": "Q1_ROI_Push",
       "ad_id": "AD-3013",
+      "lead_name": "Noel Taylor",
+      "lead_email": "noel.taylor@leads.io",
+      "company_size": "startup",
+      "industry": "manufacturing",
+      "platform": "Twitter",
+      "clicked_at": "2026-06-23T08:00:29"
+    }
+  },
+  {
+    "source_type": "web_form",
+    "raw_data": {
+      "form_id": "WF-1009",
+      "first_name": "Iris",
+      "last_name": "Morgan",
+      "email": "iris.morgan@workmail.com",
+      "company": "Ember Analytics",
+      "phone": "+356 99429963",
+      "message": "Can we book a demo for next week?",
+      "utm_source": "organic",
+      "submitted_at": "2026-06-23T02:31:29"
+    }
+  },
+  {
+    "source_type": "email",
+    "raw_data": {
+      "message_id": "MSG-2016",
+      "sender_name": "Rachel Romero",
+      "sender_email": "rachel.romero@apexsol.com",
+      "subject": "Partnership inquiry \u2014 workflow automation",
+      "body_snippet": "We have a team of 50+ and are looking for a scalable CRM workflow system.",
+      "company_domain": "apexsol.com",
+      "received_at": "2026-07-01T05:58:29"
+    }
+  },
+  {
+    "source_type": "email",
+    "raw_data": {
+      "message_id": "MSG-2001",
+      "sender_name": "Olivia Patel",
+      "sender_email": "olivia.patel@novatech.io",
+      "subject": "CRM workflow inquiry from our team",
+      "body_snippet": "We have a team of 50+ and are looking for a scalable CRM workflow system.",
+      "company_domain": "novatech.io",
+      "received_at": "2026-07-04T02:26:29"
+    }
+  },
+  {
+    "source_type": "web_form",
+    "raw_data": {
+      "form_id": "WF-1014",
+      "first_name": "Frank",
+      "last_name": "Williams",
+      "email": "frank.williams@workmail.com",
+      "company": null,
+      "phone": "+356 99854639",
+      "message": "Interested in enterprise pricing and integration options.",
+      "utm_source": "email_campaign",
+      "submitted_at": "2026-06-30T06:02:29"
+    }
+  },
+  {
+    "source_type": "web_form",
+    "raw_data": {
+      "form_id": "WF-1018",
+      "first_name": "Rachel",
+      "last_name": "Chen",
+      "email": "rachel.chen@workmail.com",
+      "company": "Frost Dynamics",
+      "phone": "+356 99322086",
+      "message": null,
+      "utm_source": "linkedin",
+      "submitted_at": "2026-06-26T10:18:29"
+    }
+  },
+  {
+    "source_type": "email",
+    "raw_data": {
+      "message_id": "MSG-2021",
+      "sender_name": "Ben Singh",
+      "sender_email": "ben.singh@bluepeak.com",
+      "subject": "CRM workflow inquiry from our team",
+      "body_snippet": "We run a lean ops team and need something that integrates with our existing stack.",
+      "company_domain": "bluepeak.com",
+      "received_at": "2026-06-26T15:46:29"
+    }
+  },
+  {
+    "source_type": "web_form",
+    "raw_data": {
+      "form_id": "WF-1001",
+      "first_name": "Rachel",
+      "last_name": "Morgan",
+      "email": "rachel.morgan@workmail.com",
+      "company": "NovaTech",
+      "phone": null,
+      "message": "Can we book a demo for next week?",
+      "utm_source": "linkedin",
+      "submitted_at": "2026-06-19T03:59:29"
+    }
+  },
+  {
+    "source_type": "email",
+    "raw_data": {
+      "message_id": "MSG-2004",
+      "sender_name": "Noel Romero",
+      "sender_email": "noel.romero@nimbussys.com",
+      "subject": "Demo request for our ops team",
+      "body_snippet": "We came across your platform via a referral. Please send over pricing details.",
+      "company_domain": "nimbussys.com",
+      "received_at": "2026-06-26T16:57:29"
+    }
+  },
+  {
+    "source_type": "email",
+    "raw_data": {
+      "message_id": "MSG-2018",
+      "sender_name": "Ben Nakamura",
+      "sender_email": "ben.nakamura@bluepeak.com",
+      "subject": "Partnership inquiry \u2014 workflow automation",
+      "body_snippet": "We run a lean ops team and need something that integrates with our existing stack.",
+      "company_domain": "bluepeak.com",
+      "received_at": "2026-06-18T09:21:29"
+    }
+  },
+  {
+    "source_type": "email",
+    "raw_data": {
+      "message_id": "MSG-2006",
+      "sender_name": "Quinn Chen",
+      "sender_email": "quinn.chen@quinnchen.com",
+      "subject": "Partnership inquiry \u2014 workflow automation",
+      "body_snippet": "Our current tool is not meeting our needs. Happy to jump on a call this week.",
+      "company_domain": null,
+      "received_at": "2026-07-03T03:56:29"
+    }
+  },
+  {
+    "source_type": "ad_platform",
+    "raw_data": {
+      "campaign_id": "Spring_Demo",
+      "ad_id": "AD-3007",
+      "lead_name": "Uma Kova\u010d",
+      "lead_email": "uma.kova\u010d@leads.io",
+      "company_size": "startup",
+      "industry": "legal",
+      "platform": "LinkedIn",
+      "clicked_at": "2026-07-02T09:46:29"
+    }
+  },
+  {
+    "source_type": "ad_platform",
+    "raw_data": {
+      "campaign_id": "SMB_Growth",
+      "ad_id": "AD-3000",
+      "lead_name": "Quinn Morgan",
+      "lead_email": "quinn.morgan@leads.io",
+      "company_size": "solo",
+      "industry": "fintech",
+      "platform": "LinkedIn",
+      "clicked_at": "2026-06-19T05:17:29"
+    }
+  },
+  {
+    "source_type": "ad_platform",
+    "raw_data": {
+      "campaign_id": "Q1_ROI_Push",
+      "ad_id": "AD-3018",
+      "lead_name": "Alice Romero",
+      "lead_email": "alice.romero@leads.io",
+      "company_size": "smb",
+      "industry": "saas",
+      "platform": "LinkedIn",
+      "clicked_at": "2026-06-28T16:07:29"
+    }
+  },
+  {
+    "source_type": "email",
+    "raw_data": {
+      "message_id": "MSG-2002",
+      "sender_name": "Alice Morgan",
+      "sender_email": "alice.morgan@bluepeak.com",
+      "subject": "Demo request for our ops team",
+      "body_snippet": "Could you share a case study relevant to our industry?",
+      "company_domain": "bluepeak.com",
+      "received_at": "2026-06-20T07:47:29"
+    }
+  },
+  {
+    "source_type": "web_form",
+    "raw_data": {
+      "form_id": "WF-1015",
+      "first_name": "David",
+      "last_name": "Singh",
+      "email": "david.singh@workmail.com",
+      "company": "IronGate Ltd",
+      "phone": "+356 99260263",
+      "message": "Interested in enterprise pricing and integration options.",
+      "utm_source": "linkedin",
+      "submitted_at": "2026-06-18T06:02:29"
+    }
+  },
+  {
+    "source_type": "web_form",
+    "raw_data": {
+      "form_id": "WF-1005",
+      "first_name": "Uma",
+      "last_name": "Kova\u010d",
+      "email": "uma.kova\u010d@workmail.com",
+      "company": "Meridian AI",
+      "phone": "+356 99838797",
+      "message": "We're looking for a scalable CRM workflow system for our sales team.",
+      "utm_source": "google",
+      "submitted_at": "2026-06-28T13:55:29"
+    }
+  },
+  {
+    "source_type": "web_form",
+    "raw_data": {
+      "form_id": "WF-1012",
+      "first_name": "Victor",
+      "last_name": "Garcia",
+      "email": "victor.garcia@workmail.com",
+      "company": "Pinnacle SaaS",
+      "phone": null,
+      "message": "We currently use HubSpot and are evaluating alternatives.",
+      "utm_source": "email_campaign",
+      "submitted_at": "2026-06-27T05:05:29"
+    }
+  },
+  {
+    "source_type": "email",
+    "raw_data": {
+      "message_id": "MSG-2009",
+      "sender_name": "Maria Chen",
+      "sender_email": "maria.chen@coreflow.io",
+      "subject": "CRM workflow inquiry from our team",
+      "body_snippet": "We run a lean ops team and need something that integrates with our existing stack.",
+      "company_domain": "coreflow.io",
+      "received_at": "2026-07-03T22:31:29"
+    }
+  },
+  {
+    "source_type": "web_form",
+    "raw_data": {
+      "form_id": "WF-1000",
+      "first_name": "Uma",
+      "last_name": "Morgan",
+      "email": "uma.morgan@workmail.com",
+      "company": null,
+      "phone": null,
+      "message": "Can we book a demo for next week?",
+      "utm_source": "linkedin",
+      "submitted_at": "2026-07-02T01:13:29"
+    }
+  },
+  {
+    "source_type": "ad_platform",
+    "raw_data": {
+      "campaign_id": "Q1_ROI_Push",
+      "ad_id": "AD-3021",
+      "lead_name": "James Kova\u010d",
+      "lead_email": "james.kova\u010d@leads.io",
+      "company_size": "startup",
+      "industry": "legal",
+      "platform": "Twitter",
+      "clicked_at": "2026-06-15T15:54:29"
+    }
+  },
+  {
+    "source_type": "ad_platform",
+    "raw_data": {
+      "campaign_id": "SMB_Growth",
+      "ad_id": "AD-3004",
+      "lead_name": "Grace Garcia",
+      "lead_email": "grace.garcia@leads.io",
+      "company_size": "solo",
+      "industry": "real-estate",
+      "platform": "TikTok",
+      "clicked_at": "2026-06-29T06:30:29"
+    }
+  },
+  {
+    "source_type": "email",
+    "raw_data": {
+      "message_id": "MSG-2020",
+      "sender_name": "Kate M\u00fcller",
+      "sender_email": "kate.m\u00fcller@bluepeak.com",
+      "subject": "Quick question about your pricing",
+      "body_snippet": "Our current tool is not meeting our needs. Happy to jump on a call this week.",
+      "company_domain": "bluepeak.com",
+      "received_at": "2026-07-02T10:05:29"
+    }
+  },
+  {
+    "source_type": "email",
+    "raw_data": {
+      "message_id": "MSG-2014",
+      "sender_name": "Uma Singh",
+      "sender_email": "uma.singh@nimbussys.com",
+      "subject": "Quick question about your pricing",
+      "body_snippet": "Hi, we're evaluating automation tools for our sales pipeline. Can we schedule a demo?",
+      "company_domain": "nimbussys.com",
+      "received_at": "2026-07-03T02:33:29"
+    }
+  },
+  {
+    "source_type": "web_form",
+    "raw_data": {
+      "form_id": "WF-1017",
+      "first_name": "Sam",
+      "last_name": "Morgan",
+      "email": "sam.morgan@workmail.com",
+      "company": null,
+      "phone": "+356 99172574",
+      "message": null,
+      "utm_source": "linkedin",
+      "submitted_at": "2026-07-01T01:30:29"
+    }
+  },
+  {
+    "source_type": "web_form",
+    "raw_data": {
+      "form_id": "WF-1021",
+      "first_name": "Ben",
+      "last_name": "Singh",
+      "email": "ben.singh@workmail.com",
+      "company": "IronGate Ltd",
+      "phone": null,
+      "message": null,
+      "utm_source": "organic",
+      "submitted_at": "2026-06-29T05:52:29"
+    }
+  },
+  {
+    "source_type": "web_form",
+    "raw_data": {
+      "form_id": "WF-1016",
+      "first_name": "Alice",
+      "last_name": "Kova\u010d",
+      "email": "alice.kova\u010d@workmail.com",
+      "company": "Apex Solutions",
+      "phone": null,
+      "message": "Interested in enterprise pricing and integration options.",
+      "utm_source": "referral",
+      "submitted_at": "2026-06-28T21:45:29"
+    }
+  },
+  {
+    "source_type": "ad_platform",
+    "raw_data": {
+      "campaign_id": "Brand_Awareness",
+      "ad_id": "AD-3002",
+      "lead_name": "James Osei",
+      "lead_email": "james.osei@leads.io",
+      "company_size": "startup",
+      "industry": "e-commerce",
+      "platform": "Google Ads",
+      "clicked_at": "2026-06-29T09:18:29"
+    }
+  },
+  {
+    "source_type": "web_form",
+    "raw_data": {
+      "form_id": "WF-1022",
+      "first_name": "Sam",
+      "last_name": "Kova\u010d",
+      "email": "sam.kova\u010d@workmail.com",
+      "company": "SilverLine Corp",
+      "phone": "+356 99299659",
+      "message": "We're looking for a scalable CRM workflow system for our sales team.",
+      "utm_source": "google",
+      "submitted_at": "2026-06-22T11:33:29"
+    }
+  },
+  {
+    "source_type": "web_form",
+    "raw_data": {
+      "form_id": "WF-1013",
+      "first_name": "Alice",
+      "last_name": "Tanaka",
+      "email": "alice.tanaka@workmail.com",
+      "company": "Cobalt Digital",
+      "phone": "+356 99905934",
+      "message": null,
+      "utm_source": "referral",
+      "submitted_at": "2026-07-02T13:33:29"
+    }
+  },
+  {
+    "source_type": "ad_platform",
+    "raw_data": {
+      "campaign_id": "Brand_Awareness",
+      "ad_id": "AD-3019",
+      "lead_name": "Alice Kova\u010d",
+      "lead_email": "alice.kova\u010d@leads.io",
+      "company_size": "mid-market",
+      "industry": "saas",
+      "platform": "Google Ads",
+      "clicked_at": "2026-06-21T00:44:29"
+    }
+  },
+  {
+    "source_type": "ad_platform",
+    "raw_data": {
+      "campaign_id": "Q1_ROI_Push",
+      "ad_id": "AD-3022",
+      "lead_name": "Wendy M\u00fcller",
+      "lead_email": "wendy.m\u00fcller@leads.io",
+      "company_size": "solo",
+      "industry": "manufacturing",
+      "platform": "Meta",
+      "clicked_at": "2026-06-18T09:18:29"
+    }
+  },
+  {
+    "source_type": "web_form",
+    "raw_data": {
+      "form_id": "WF-1020",
+      "first_name": "Rachel",
+      "last_name": "Patel",
+      "email": "rachel.patel@workmail.com",
+      "company": "Apex Solutions",
+      "phone": null,
+      "message": null,
+      "utm_source": "google",
+      "submitted_at": "2026-06-28T20:03:29"
+    }
+  },
+  {
+    "source_type": "ad_platform",
+    "raw_data": {
+      "campaign_id": "Enterprise_Reach",
+      "ad_id": "AD-3005",
+      "lead_name": "Frank Tanaka",
+      "lead_email": "frank.tanaka@leads.io",
+      "company_size": null,
+      "industry": "manufacturing",
+      "platform": "LinkedIn",
+      "clicked_at": "2026-06-28T01:41:29"
+    }
+  },
+  {
+    "source_type": "ad_platform",
+    "raw_data": {
+      "campaign_id": "Brand_Awareness",
+      "ad_id": "AD-3014",
       "lead_name": "Leo Kowalski",
       "lead_email": "leo.kowalski@leads.io",
       "company_size": "startup",
       "industry": "education",
       "platform": "Google Ads",
-      "clicked_at": "2026-06-03T22:26:48"
+      "clicked_at": "2026-06-20T15:43:29"
     }
   },
   {
@@ -921,57 +845,145 @@
       "phone": "+356 99452944",
       "message": "We're looking for a scalable CRM workflow system for our sales team.",
       "utm_source": "google",
-      "submitted_at": "2026-06-07T02:21:48"
+      "submitted_at": "2026-06-23T19:38:29"
     }
   },
   {
     "source_type": "email",
     "raw_data": {
-      "message_id": "MSG-2018",
-      "sender_name": "Kate M\u00fcller",
-      "sender_email": "kate.m\u00fcller@bluepeak.com",
-      "subject": "Quick question about your pricing",
-      "body_snippet": "Our current tool is not meeting our needs. Happy to jump on a call this week.",
-      "company_domain": "bluepeak.com",
-      "received_at": "2026-06-15T16:48:48"
-    }
-  },
-  {
-    "source_type": "email",
-    "raw_data": {
-      "message_id": "MSG-2023",
-      "sender_name": "Quinn Morgan",
-      "sender_email": "quinn.morgan@bluepeak.com",
-      "subject": "Quick question about your pricing",
+      "message_id": "MSG-2019",
+      "sender_name": "Elena Patel",
+      "sender_email": "elena.patel@vertexdigital.co",
+      "subject": "Request for enterprise proposal",
       "body_snippet": "Hi, we're evaluating automation tools for our sales pipeline. Can we schedule a demo?",
-      "company_domain": "bluepeak.com",
-      "received_at": "2026-06-06T05:10:48"
+      "company_domain": "vertexdigital.co",
+      "received_at": "2026-06-29T23:01:29"
+    }
+  },
+  {
+    "source_type": "email",
+    "raw_data": {
+      "message_id": "MSG-2024",
+      "sender_name": "Iris Taylor",
+      "sender_email": "iris.taylor@iristaylor.com",
+      "subject": "Request for enterprise proposal",
+      "body_snippet": "We run a lean ops team and need something that integrates with our existing stack.",
+      "company_domain": null,
+      "received_at": "2026-06-25T09:22:29"
+    }
+  },
+  {
+    "source_type": "ad_platform",
+    "raw_data": {
+      "campaign_id": "Enterprise_Reach",
+      "ad_id": "AD-3010",
+      "lead_name": "Frank Romero",
+      "lead_email": "frank.romero@leads.io",
+      "company_size": "startup",
+      "industry": "legal",
+      "platform": "Twitter",
+      "clicked_at": "2026-06-20T02:45:29"
     }
   },
   {
     "source_type": "ad_platform",
     "raw_data": {
       "campaign_id": "SMB_Growth",
-      "ad_id": "AD-3022",
+      "ad_id": "AD-3023",
       "lead_name": "Leo Morgan",
       "lead_email": "leo.morgan@leads.io",
       "company_size": "smb",
       "industry": null,
       "platform": "TikTok",
-      "clicked_at": "2026-06-15T16:20:48"
+      "clicked_at": "2026-07-02T09:37:29"
     }
   },
   {
     "source_type": "ad_platform",
     "raw_data": {
-      "campaign_id": "Brand_Awareness",
-      "ad_id": "AD-3009",
-      "lead_name": "Paul Williams",
-      "lead_email": "paul.williams@leads.io",
-      "company_size": "mid-market",
-      "industry": "e-commerce",
-      "platform": "TikTok",
-      "clicked_at": "2026-05-29T22:26:48"
+      "campaign_id": "Spring_Demo",
+      "ad_id": "AD-3008",
+      "lead_name": "Frank M\u00fcller",
+      "lead_email": "frank.m\u00fcller@leads.io",
+      "company_size": "solo",
+      "industry": "education",
+      "platform": "LinkedIn",
+      "clicked_at": "2026-06-21T18:09:29"
+    }
+  },
+  {
+    "source_type": "email",
+    "raw_data": {
+      "message_id": "MSG-2011",
+      "sender_name": "Clara Patel",
+      "sender_email": "clara.patel@vertexdigital.co",
+      "subject": "CRM workflow inquiry from our team",
+      "body_snippet": "Looking to automate our lead qualification process. Would love to discuss.",
+      "company_domain": "vertexdigital.co",
+      "received_at": "2026-06-16T02:27:29"
+    }
+  },
+  {
+    "source_type": "web_form",
+    "raw_data": {
+      "form_id": "WF-1011",
+      "first_name": "Leo",
+      "last_name": "Patel",
+      "email": "leo.patel@workmail.com",
+      "company": "CoreFlow",
+      "phone": "+356 99195325",
+      "message": "We're looking for a scalable CRM workflow system for our sales team.",
+      "utm_source": "google",
+      "submitted_at": "2026-07-01T02:50:29"
+    }
+  },
+  {
+    "source_type": "email",
+    "raw_data": {
+      "message_id": "MSG-2007",
+      "sender_name": "Victor Singh",
+      "sender_email": "victor.singh@novatech.io",
+      "subject": "Evaluating CRM tools for Q2",
+      "body_snippet": "Hi, we're evaluating automation tools for our sales pipeline. Can we schedule a demo?",
+      "company_domain": "novatech.io",
+      "received_at": "2026-06-16T20:34:29"
+    }
+  },
+  {
+    "source_type": "email",
+    "raw_data": {
+      "message_id": "MSG-2017",
+      "sender_name": "Leo Kova\u010d",
+      "sender_email": "leo.kova\u010d@deltaops.com",
+      "subject": "Demo request for our ops team",
+      "body_snippet": "Hi, we're evaluating automation tools for our sales pipeline. Can we schedule a demo?",
+      "company_domain": "deltaops.com",
+      "received_at": "2026-06-26T11:03:29"
+    }
+  },
+  {
+    "source_type": "email",
+    "raw_data": {
+      "message_id": "MSG-2010",
+      "sender_name": "Tara Kova\u010d",
+      "sender_email": "tara.kova\u010d@novatech.io",
+      "subject": "Evaluating CRM tools for Q2",
+      "body_snippet": "Looking to automate our lead qualification process. Would love to discuss.",
+      "company_domain": "novatech.io",
+      "received_at": "2026-07-01T11:04:29"
+    }
+  },
+  {
+    "source_type": "ad_platform",
+    "raw_data": {
+      "campaign_id": "SMB_Growth",
+      "ad_id": "AD-3006",
+      "lead_name": "Hugo M\u00fcller",
+      "lead_email": "hugo.m\u00fcller@leads.io",
+      "company_size": "enterprise",
+      "industry": null,
+      "platform": "Twitter",
+      "clicked_at": "2026-07-03T08:34:29"
     }
   }
 ]

@@ -49,7 +49,8 @@ def init_db():
                 created_at TEXT NOT NULL,
                 updated_at TEXT NOT NULL,
                 last_contacted_at TEXT,
-                outcome TEXT
+                outcome TEXT,
+                duplicate_count INTEGER NOT NULL DEFAULT 0
             );
 
             CREATE TABLE IF NOT EXISTS stage_transitions (
@@ -125,6 +126,14 @@ def update_lead_stage(lead_id: int, new_stage: str, updated_at: str,
         conn.execute(
             f"UPDATE leads SET {', '.join(fields)} WHERE id = :lead_id",
             params
+        )
+
+
+def increment_duplicate_count(lead_id: int):
+    with get_connection() as conn:
+        conn.execute(
+            "UPDATE leads SET duplicate_count = duplicate_count + 1 WHERE id = ?",
+            (lead_id,)
         )
 
 

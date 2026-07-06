@@ -29,7 +29,7 @@ if hasattr(sys.stdout, "reconfigure"):
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from database.db import init_db, reset_db
-from pipeline.workflow_engine import ingest_lead, bulk_ingest
+from pipeline.workflow_engine import ingest_lead, DuplicateConflictError
 from pipeline.state_manager import transition_lead, run_automated_checks, TransitionError
 from pipeline.metrics_evaluator import compute_metrics
 from pipeline.agent_analyzer import run_agent_analysis
@@ -45,19 +45,28 @@ def seed_from_file(path: str = "data/raw_inputs.json") -> int:
     with open(path) as f:
         leads = json.load(f)
 
-    results = {"ingested": 0, "failed": 0, "errors": []}
+    results = {"ingested": 0, "duplicates": 0, "conflicts": 0, "failed": 0, "errors": []}
     for entry in leads:
         try:
-            ingest_lead(entry["source_type"], entry["raw_data"])
-            results["ingested"] += 1
+            result = ingest_lead(entry["source_type"], entry["raw_data"])
+            if result["status"] == "duplicate":
+                results["duplicates"] += 1
+            else:
+                results["ingested"] += 1
+        except DuplicateConflictError as e:
+            results["conflicts"] += 1
+            results["errors"].append(str(e))
         except Exception as e:
             results["failed"] += 1
             results["errors"].append(str(e))
 
-    print(f"\n[SEED] Ingested: {results['ingested']} | Failed: {results['failed']}")
+    print(
+        f"\n[SEED] Ingested: {results['ingested']} | Duplicates: {results['duplicates']} | "
+        f"Conflicts: {results['conflicts']} | Failed: {results['failed']}"
+    )
     if results["errors"]:
         for err in results["errors"][:5]:
-            print(f"  Error: {err}")
+            print(f"  Note: {err}")
     return results["ingested"]
 
 

@@ -14,7 +14,7 @@ from typing import Optional, List
 from datetime import datetime
 
 from database import db
-from pipeline.workflow_engine import ingest_lead
+from pipeline.workflow_engine import ingest_lead, DuplicateConflictError
 from pipeline.state_manager import transition_lead, run_automated_checks, TransitionError
 from pipeline.metrics_evaluator import compute_metrics
 from pipeline.agent_analyzer import run_agent_analysis
@@ -56,12 +56,17 @@ def ingest(request: IngestRequest):
     try:
         lead = ingest_lead(request.source_type.value, request.raw_data)
         return {
-            "status": "ingested",
+            "status": lead["status"],
             "lead_id": lead["id"],
             "current_stage": lead["current_stage"],
             "assigned_queue": lead["assigned_queue"],
             "lead_score": lead["lead_score"],
         }
+    except DuplicateConflictError as e:
+        raise HTTPException(
+            status_code=409,
+            detail={"message": str(e), "lead_id": e.existing_lead_id},
+        )
     except ValueError as e:
         raise HTTPException(status_code=422, detail=str(e))
     except Exception as e:

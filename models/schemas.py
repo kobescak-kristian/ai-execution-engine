@@ -103,6 +103,7 @@ class LeadRecord(BaseModel):
     updated_at: datetime
     last_contacted_at: Optional[datetime] = None
     outcome: Optional[str] = None
+    duplicate_count: int = 0
 
 
 # ─── Stage Transition ─────────────────────────────────────────────────────────
