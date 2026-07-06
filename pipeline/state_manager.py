@@ -6,12 +6,19 @@ from pipeline.router import is_valid_transition, get_valid_next_stages
 from config.settings import (
     QUEUE_MANUAL_REVIEW,
     QUEUE_REENGAGEMENT,
+    QUEUE_ENTERPRISE,
+    QUEUE_SMB,
+    QUEUE_INBOUND,
+    ENTERPRISE_SCORE_THRESHOLD,
+    SMB_SCORE_THRESHOLD,
     FOLLOW_UP_THRESHOLD_DAYS,
     STUCK_LEAD_THRESHOLD_DAYS,
 )
 from utils.logger import get_logger
 
 logger = get_logger("state_manager")
+
+TERMINAL_STAGES = {"won", "lost"}
 
 
 class TransitionError(Exception):
@@ -20,6 +27,20 @@ class TransitionError(Exception):
 
 def _now_iso() -> str:
     return datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S")
+
+
+def _recovery_queue_for_score(score: int) -> str:
+    """
+    Re-applies the router's score thresholds with the manual_review branch
+    excluded, for a lead recovering out of manual_review to a non-terminal
+    stage. A recovered lead must never boomerang back into
+    manual_review_queue on score alone.
+    """
+    if score >= ENTERPRISE_SCORE_THRESHOLD:
+        return QUEUE_ENTERPRISE
+    if score >= SMB_SCORE_THRESHOLD:
+        return QUEUE_SMB
+    return QUEUE_INBOUND
 
 
 # ─── State Transition ─────────────────────────────────────────────────────────
@@ -57,6 +78,15 @@ def transition_lead(
     # stuck-in-contacted check routes to reengagement_queue instead).
     if to_stage == "manual_review" and assigned_queue is None:
         assigned_queue = QUEUE_MANUAL_REVIEW
+    elif (
+        from_stage == "manual_review"
+        and to_stage not in TERMINAL_STAGES
+        and assigned_queue is None
+    ):
+        # Recovering out of manual_review must not leave the lead pointed
+        # at manual_review_queue. Terminal-stage transitions (won/lost)
+        # keep the existing pass-through behavior.
+        assigned_queue = _recovery_queue_for_score(lead["lead_score"])
 
     db.update_lead_stage(
         lead_id=lead_id,
