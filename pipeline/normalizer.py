@@ -21,10 +21,26 @@ def _compute_score(
     industry: str = None,
     source_type: SourceType = None
 ) -> int:
+    """
+    Scoring rules (base 30, then signal adjustments):
+      - company identified: +10; not identified: -15. A lead with no
+        identifiable company/industry signal at all is a real quality
+        problem, not merely the absence of a bonus — this is what makes
+        MANUAL_REVIEW_SCORE_THRESHOLD reachable for genuinely incomplete
+        leads instead of only ever routing to inbound/SMB/enterprise.
+      - phone / message present: +10 each; no penalty for absence, since
+        plenty of legitimate leads simply don't share these.
+      - company size / high-value industry: bonus only (unchanged).
+      - source: email +5 (intentional outreach), ad_platform -5 (lower
+        intent, unsolicited click).
+    Result is capped at 100.
+    """
     score = 30  # base
 
     if has_company:
         score += 10
+    else:
+        score -= 15  # no identifiable company/industry signal is a real quality problem
     if has_phone:
         score += 10
     if has_message:

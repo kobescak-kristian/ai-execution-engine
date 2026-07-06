@@ -4,6 +4,7 @@ from typing import Optional
 from database import db
 from pipeline.router import is_valid_transition, get_valid_next_stages
 from config.settings import (
+    QUEUE_MANUAL_REVIEW,
     QUEUE_REENGAGEMENT,
     FOLLOW_UP_THRESHOLD_DAYS,
     STUCK_LEAD_THRESHOLD_DAYS,
@@ -50,6 +51,12 @@ def transition_lead(
 
     now = _now_iso()
     last_contacted_at = now if to_stage == "contacted" else None
+
+    # Any transition into manual_review must land in manual_review_queue
+    # unless the caller explicitly requests a different queue (e.g. the
+    # stuck-in-contacted check routes to reengagement_queue instead).
+    if to_stage == "manual_review" and assigned_queue is None:
+        assigned_queue = QUEUE_MANUAL_REVIEW
 
     db.update_lead_stage(
         lead_id=lead_id,
