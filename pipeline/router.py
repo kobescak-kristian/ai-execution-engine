@@ -32,7 +32,7 @@ def route_lead(lead: NormalizedLead) -> RoutingDecision:
 
     # Below minimum threshold — incomplete or low-quality signal
     if score < MANUAL_REVIEW_SCORE_THRESHOLD:
-        logger.info(f"Lead {lead.email} → manual_review (score={score}, below threshold)")
+        logger.info(f"Lead {lead.email} -> manual_review (score={score}, below threshold)")
         return RoutingDecision(
             initial_stage=LeadStage.MANUAL_REVIEW,
             assigned_queue=QUEUE_MANUAL_REVIEW,
@@ -41,7 +41,7 @@ def route_lead(lead: NormalizedLead) -> RoutingDecision:
 
     # High score — enterprise routing
     if score >= ENTERPRISE_SCORE_THRESHOLD:
-        logger.info(f"Lead {lead.email} → enterprise_sales (score={score})")
+        logger.info(f"Lead {lead.email} -> enterprise_sales (score={score})")
         return RoutingDecision(
             initial_stage=LeadStage.QUALIFIED,
             assigned_queue=QUEUE_ENTERPRISE,
@@ -50,7 +50,7 @@ def route_lead(lead: NormalizedLead) -> RoutingDecision:
 
     # Mid score — SMB routing
     if score >= SMB_SCORE_THRESHOLD:
-        logger.info(f"Lead {lead.email} → smb_sales (score={score})")
+        logger.info(f"Lead {lead.email} -> smb_sales (score={score})")
         return RoutingDecision(
             initial_stage=LeadStage.QUALIFIED,
             assigned_queue=QUEUE_SMB,
@@ -58,7 +58,7 @@ def route_lead(lead: NormalizedLead) -> RoutingDecision:
         )
 
     # Low-mid score — inbound queue for triage
-    logger.info(f"Lead {lead.email} → inbound_queue (score={score})")
+    logger.info(f"Lead {lead.email} -> inbound_queue (score={score})")
     return RoutingDecision(
         initial_stage=LeadStage.NEW,
         assigned_queue=QUEUE_INBOUND,

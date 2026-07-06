@@ -155,5 +155,5 @@ def normalize(source_type: Union[str, SourceType], raw_data: dict) -> Normalized
         raise ValueError(f"No normalizer registered for source type: {source_type}")
 
     lead = normalizer(raw_data)
-    logger.info(f"Normalized lead: {lead.full_name} | score={lead.lead_score} | source={source_type}")
+    logger.info(f"Normalized lead: {lead.full_name} | score={lead.lead_score} | source={source_type.value}")
     return lead

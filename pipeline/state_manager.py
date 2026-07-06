@@ -70,7 +70,7 @@ def transition_lead(
         "notes": notes
     })
 
-    logger.info(f"Lead {lead_id}: {from_stage} → {to_stage} (trigger={trigger})")
+    logger.info(f"Lead {lead_id}: {from_stage} -> {to_stage} (trigger={trigger})")
     return db.get_lead_by_id(lead_id)
 
 

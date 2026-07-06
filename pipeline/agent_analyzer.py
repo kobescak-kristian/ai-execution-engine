@@ -33,7 +33,7 @@ def _deterministic_recommendations(metrics: WorkflowMetrics) -> List[AgentRecomm
                 "more leads automatically. Introduce a secondary scoring pass for "
                 "leads currently flagged as incomplete."
             ),
-            expected_effect="Estimated 20–30% reduction in manual review volume, "
+            expected_effect="Estimated 20-30% reduction in manual review volume, "
                             "faster average cycle time for mid-range leads.",
             trade_off="Some lower-quality leads may enter the active pipeline, "
                       "increasing noise for sales queues.",
@@ -48,12 +48,12 @@ def _deterministic_recommendations(metrics: WorkflowMetrics) -> List[AgentRecomm
                   f"High loss volume ({metrics.lost_count} leads) suggests proposal stage drop-off "
                   f"or premature disqualification.",
             recommendation=(
-                "Audit the proposal → lost transition triggers. Review whether leads are "
+                "Audit the proposal -> lost transition triggers. Review whether leads are "
                 "being lost due to no follow-up, pricing mismatch, or wrong qualification "
                 "criteria upstream. Consider adding a re-engagement path before marking lost."
             ),
             expected_effect="If 15% of currently lost leads are recoverable, "
-                            "win rate could increase by 3–5 percentage points.",
+                            "win rate could increase by 3-5 percentage points.",
             trade_off="Re-engagement effort requires queue capacity and increases cycle time.",
             priority="high"
         ))
@@ -105,7 +105,7 @@ def _deterministic_recommendations(metrics: WorkflowMetrics) -> List[AgentRecomm
                 "stage with no contact recorded. Reduce the follow-up overdue threshold from "
                 "3 days to 2 days."
             ),
-            expected_effect="Faster first contact improves conversion probability by 20–40% "
+            expected_effect="Faster first contact improves conversion probability by 20-40% "
                             "based on standard SDR benchmarks.",
             trade_off="Requires notification infrastructure. Risk of over-notification "
                       "if not scoped to the right queue.",

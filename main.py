@@ -148,9 +148,9 @@ def simulate_progressions():
 
 def print_metrics():
     metrics = compute_metrics()
-    print("\n" + "═" * 60)
+    print("\n" + "=" * 60)
     print("WORKFLOW METRICS")
-    print("═" * 60)
+    print("=" * 60)
     print(f"  Total leads:          {metrics.total_leads}")
     print(f"  Won:                  {metrics.won_count}")
     print(f"  Lost:                 {metrics.lost_count}")
@@ -167,26 +167,26 @@ def print_metrics():
         print(f"    {queue:<25} {count}")
     if metrics.avg_follow_up_lag_days:
         print(f"\n  Avg follow-up lag:    {metrics.avg_follow_up_lag_days:.1f} days")
-    print("═" * 60)
+    print("=" * 60)
 
 
 # ─── Print Agent Recommendations ─────────────────────────────────────────────
 
 def print_recommendations():
-    print("\n" + "═" * 60)
+    print("\n" + "=" * 60)
     print("AGENT RECOMMENDATIONS")
-    print("═" * 60)
+    print("=" * 60)
     result = run_agent_analysis()
     print(f"\nSource: {result.analysis_source}")
     print(f"Summary: {result.summary}\n")
 
     for i, rec in enumerate(result.recommendations, 1):
         print(f"[{i}] [{rec.priority.upper()}] {rec.issue}")
-        print(f"     → {rec.recommendation}")
+        print(f"     -> {rec.recommendation}")
         print(f"     Effect:    {rec.expected_effect}")
         print(f"     Trade-off: {rec.trade_off}")
         print()
-    print("═" * 60)
+    print("=" * 60)
 
 
 # ─── Entry Point ──────────────────────────────────────────────────────────────
@@ -194,9 +194,9 @@ def print_recommendations():
 if __name__ == "__main__":
     reset = "--reset" in sys.argv
 
-    print("\n" + "═" * 60)
-    print("CRM WORKFLOW AUTOMATION SYSTEM — DEMO RUN")
-    print("═" * 60)
+    print("\n" + "=" * 60)
+    print("CRM WORKFLOW AUTOMATION SYSTEM - DEMO RUN")
+    print("=" * 60)
 
     if reset:
         print("\n[DB] Resetting database...")

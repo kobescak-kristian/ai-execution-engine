@@ -75,7 +75,7 @@ def ingest_lead(source_type: str, raw_data: dict) -> dict:
     stored = db.get_lead_by_id(lead_id)
     logger.info(
         f"Lead ingested: id={lead_id} | name={normalized.full_name} | "
-        f"stage={routing.initial_stage} | queue={routing.assigned_queue}"
+        f"stage={routing.initial_stage.value} | queue={routing.assigned_queue}"
     )
     return stored
 
