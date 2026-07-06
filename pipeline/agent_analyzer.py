@@ -16,6 +16,15 @@ from utils.logger import get_logger
 
 logger = get_logger("agent_analyzer")
 
+# Known placeholder values that mean "no real key" even though the env var
+# is technically set (e.g. a .env copied from .env.example without editing).
+_PLACEHOLDER_OPENAI_KEYS = {"your_openai_api_key_here"}
+
+
+def _is_openai_key_configured() -> bool:
+    key = (OPENAI_API_KEY or "").strip()
+    return bool(key) and key not in _PLACEHOLDER_OPENAI_KEYS
+
 
 # ─── Deterministic Fallback ───────────────────────────────────────────────────
 
@@ -211,7 +220,7 @@ def run_agent_analysis() -> AgentAnalysisResult:
     analysis_source = "deterministic"
     recommendations = []
 
-    if OPENAI_API_KEY:
+    if _is_openai_key_configured():
         try:
             recommendations = _openai_recommendations(metrics)
             analysis_source = "openai"

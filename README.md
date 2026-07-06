@@ -182,7 +182,8 @@ pip install -r requirements.txt
 
 # 2. Configure environment
 cp .env.example .env
-# Edit .env and set OPENAI_API_KEY (optional — falls back to deterministic agent if unset)
+# Copying .env.example as-is runs fully offline (deterministic agent, no API calls).
+# Set OPENAI_API_KEY in .env only if you want AI-generated recommendations.
 
 # 3. Run the demo (seeds the database and prints metrics + recommendations)
 python main.py
