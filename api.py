@@ -223,7 +223,7 @@ def run_workflow_checks():
 @app.get("/stats", tags=["Analytics"])
 def get_stats():
     """
-    Return computed workflow metrics: stage breakdown, conversion rates,
+    Return computed workflow metrics: stage breakdown, stage distribution %,
     win rate, manual review volume, stuck/aging leads, queue workload.
     """
     metrics = compute_metrics()

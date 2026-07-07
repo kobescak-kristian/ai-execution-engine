@@ -173,7 +173,7 @@ def simulate_progressions():
         except TransitionError:
             pass
 
-    # Move some new → lost (disqualified on review)
+    # Move some new -> manual_review (flagged for review, incomplete signal)
     for lead in new_leads[:3]:
         try:
             transition_lead(lead["id"], "manual_review", "low_quality_signal",

@@ -42,18 +42,22 @@ analysis and execution.
 
 ## Outcome
 
-Built and run end to end on a 75-lead dataset spanning all three
-source types (`web_form`, `email`, `ad_platform`).
+Built and run end to end on a 74-lead dataset (plus 2 intentional
+dedup fixtures — a same-data duplicate and a conflicting duplicate)
+spanning all three source types (`web_form`, `email`, `ad_platform`).
 
-- 75 leads ingested in a single demo run, zero normalisation failures
-  across all three source types
+- 74 leads ingested in a single demo run, zero normalisation failures
+  across all three source types — plus 1 same-data duplicate flagged
+  (`200`, `duplicate_count` incremented) and 1 conflicting duplicate
+  rejected (`409`, existing lead untouched)
 - Every lead scored and routed deterministically — same input, same
   queue and stage, every time
 - Full stage history stored and queryable per lead — the complete
   journey of any lead is reconstructable
 - Automated checks surface overdue follow-ups, stuck leads, and stale
-  new entries
-- The bounded agent produces 3–5 structured recommendations per run,
+  new entries — 1 follow-up escalation, 12 stuck leads, 1 reengagement
+  queued on a fresh run
+- The bounded agent produces 4 structured recommendations per run,
   each with an expected effect and a trade-off, reading metrics only —
   it never modifies CRM state
 - All workflow state exposed through 9 API endpoints
@@ -67,8 +71,9 @@ source types (`web_form`, `email`, `ad_platform`).
 1. **Ingest** — raw leads arrive from `web_form`, `email`, or
    `ad_platform`
 2. **Normalise** — source-specific field mapping, score computation,
-   and deduplication into one unified schema (duplicates flagged, not
-   dropped)
+   and deduplication into one unified schema (same-data repeats
+   flagged with a `duplicate_count`, conflicting repeats rejected with
+   `409` — never silently dropped or overwritten)
 3. **Route** — deterministic, score-based assignment to a queue and
    stage: queues `inbound_queue`, `smb_sales`, `enterprise_sales`,
    `manual_review_queue`, `reengagement_queue`
@@ -77,8 +82,8 @@ source types (`web_form`, `email`, `ad_platform`).
 5. **Lifecycle** — stages progress `new → qualified → assigned →
    contacted → proposal → won/lost`, via API triggers or automated
    time-based checks, with every transition stored
-6. **Measure** — the metrics evaluator computes stage breakdown,
-   conversion rates, stuck/aging leads, and queue workload
+6. **Measure** — the metrics evaluator computes stage breakdown (counts
+   and % of total per stage), stuck/aging leads, and queue workload
 7. **Recommend (bounded agent)** — an OpenAI agent reads the metrics
    and returns structured recommendations with a deterministic
    fallback; it does not modify any CRM state
@@ -91,7 +96,7 @@ source types (`web_form`, `email`, `ad_platform`).
 | Deterministic scoring & routing | Reproducible, testable routing — no black-box decisions |
 | Named queues + stages | Five queues (`inbound`, `smb_sales`, `enterprise_sales`, `manual_review`, `reengagement`) — clear operational ownership and a defined lifecycle |
 | SQLite state + transitions | Full, reconstructable lead journey and audit trail |
-| Deduplication | The same lead is flagged, not double-processed |
+| Deduplication | Same-data repeats flagged (`duplicate_count`), conflicting repeats rejected with `409` — never silently overwritten |
 | Metrics evaluator | Bottlenecks and stuck leads are visible, not guessed at |
 | Bounded agent | AI insight without AI touching live state |
 | Automated checks | Overdue and stale leads caught on demand — via the demo run or `POST /workflow/run-checks` |
@@ -109,7 +114,7 @@ Nine endpoints grouped by function:
 | `POST /progress` | Manually advance a lead to a new stage |
 | `POST /progress/stage` | Explicit stage update with separate `to_stage` parameter |
 | `POST /workflow/run-checks` | Trigger automated time-based checks (overdue, stuck, stale) |
-| `GET /stats` | Computed workflow metrics: stage breakdown, conversion rates, queue workload |
+| `GET /stats` | Computed workflow metrics: stage breakdown, stage distribution %, queue workload |
 | `GET /agent/recommendations` | Bounded agent recommendations from current metrics (read-only) |
 
 See `/docs` on a running instance for the full interactive spec.
@@ -118,7 +123,7 @@ See `/docs` on a running instance for the full interactive spec.
 
 Python 3.10+ · Pydantic v2 · FastAPI · SQLite (stdlib) ·
 OpenAI `gpt-4o-mini` (deterministic fallback if no key) ·
-python-dotenv. (See `requirements.txt` for exact versions.)
+python-dotenv. (See `requirements.txt` for version constraints.)
 
 ## Key Design Decisions
 
@@ -130,9 +135,11 @@ delegated to the model.
 persisted with a trigger and timestamp, so the system can answer "how
 did this lead get here," not only "where is it now."
 
-**Deduplication that flags, not blocks:** A suspected duplicate is
-surfaced rather than dropped, because a wrong auto-merge is harder to
-undo than a flag.
+**Deduplication that flags conflicts, never silently overwrites:** A
+same-data repeat increments a queryable `duplicate_count` on the
+existing lead instead of creating a duplicate row; a conflicting
+repeat is rejected with `409` naming the existing lead, because a
+wrong auto-merge is harder to undo than a flag.
 
 **Automated checks built in:** Time-based rules (overdue follow-up, stuck
 leads, stale re-engagement) run on demand — via `python main.py` or
@@ -146,8 +153,8 @@ shares no files with them.
 
 ## Known Limitations
 
-**Synthetic data** — the 75-lead dataset is generated, not real CRM
-data.
+**Synthetic data** — the 74-lead dataset (76 ingest attempts, including
+2 intentional dedup fixtures) is generated, not real CRM data.
 
 **No API authentication** — endpoints are open; production requires
 auth middleware.
@@ -175,6 +182,8 @@ Complete — v1.0
 | v1.0 | 2026-06-18 | Docs: consistency pass — canonical System Context order + AI engine names |
 | v1.0 | 2026-06-18 | Docs: standardize naming — fix Impact Engine URL, dash bullets in System Context |
 | v1.0 | 2026-06-20 | Fix execution engine audit findings — release |
+| v1.0 | 2026-07-04 | Adopt ARTIFACT_STANDARD Tier 0 — CLAUDE.md, pre-push validation, README restructure, first ADR |
+| v1.0 | 2026-07-07 | Remediation release — cp1252 console safety, placeholder-key no-network fallback, duplicate/conflict enforcement, manual_review_queue reachability + stage/queue desync fixes, deterministic automated checks, API robustness (400 on bad stage, ASCII arrow alias), full docs re-derivation |
 
 ## Setup
 
@@ -198,7 +207,8 @@ uvicorn api:app --reload
 # Interactive docs available at http://localhost:8000/docs
 ```
 
-The demo run seeds 75 leads from `data/raw_inputs.json`, runs automated workflow checks,
+The demo run seeds 74 distinct leads plus 2 dedup fixtures (1 same-data duplicate,
+1 conflicting duplicate) from `data/raw_inputs.json`, runs automated workflow checks,
 simulates lifecycle progressions, and prints metrics and agent recommendations to stdout.
 To regenerate the dataset: `python data/generate_dataset.py`
 
@@ -210,12 +220,20 @@ ai-execution-engine/
 ├── main.py                   # Local demo runner and seed entry point (--reset)
 ├── requirements.txt
 ├── .env.example
+├── CLAUDE.md                 # Repo-scoped agent instructions (ARTIFACT_STANDARD Tier 0)
 ├── ai-execution-engine_architecture.png
+│
+├── adr/
+│   └── 0001-bounded-agent-no-state-mutation.md
+│
+├── .githooks/
+│   ├── pre-push
+│   └── validate_artifacts.py # Tier 0 artifact-standard check, run on pre-push
 │
 ├── pipeline/
 │   ├── normalizer.py         # Source-specific field mapping + score computation
 │   ├── router.py             # Deterministic queue and stage assignment
-│   ├── workflow_engine.py    # Ingest orchestration and bulk processing
+│   ├── workflow_engine.py    # Ingest orchestration, dedup/conflict enforcement
 │   ├── state_manager.py      # Stage transitions and automated checks
 │   ├── metrics_evaluator.py  # Workflow KPI computation
 │   └── agent_analyzer.py     # OpenAI agent with deterministic fallback
@@ -233,7 +251,7 @@ ai-execution-engine/
 │   └── logger.py             # Shared logger
 │
 └── data/
-    ├── raw_inputs.json       # 75 pre-generated leads across 3 source types
+    ├── raw_inputs.json       # 74 distinct leads + 2 dedup fixtures across 3 source types
     └── generate_dataset.py   # Dataset generation script
 ```
 

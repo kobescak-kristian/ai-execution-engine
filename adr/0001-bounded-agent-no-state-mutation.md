@@ -17,10 +17,12 @@ change with no deterministic path back.
 `compute_metrics()` (`pipeline/metrics_evaluator.py`) and returns structured
 `AgentRecommendation` objects (issue, recommendation, expected_effect, trade_off, priority).
 It calls no function in `state_manager.py`, `router.py`, or `database/db.py` that mutates
-lead state. If `OPENAI_API_KEY` is unset, or the OpenAI call fails, the code falls back to
+lead state. If `OPENAI_API_KEY` is unset, empty, or the known placeholder value, or if the
+OpenAI call fails for any reason (auth, timeout, transport error), the code falls back to
 `_deterministic_recommendations()`, a pure function over metrics with no external call.
-Scoring (`pipeline/router.py::route_lead`) and stage transitions (`VALID_TRANSITIONS`) are
-deterministic and run independently of the agent.
+Scoring (`pipeline/normalizer.py::_compute_score`) and routing/stage transitions
+(`pipeline/router.py::route_lead`, `VALID_TRANSITIONS`) are deterministic and run
+independently of the agent.
 
 ## Consequences
 - Every state change traces to a deterministic rule, never a model output.
