@@ -94,7 +94,7 @@ source types (`web_form`, `email`, `ad_platform`).
 | Deduplication | The same lead is flagged, not double-processed |
 | Metrics evaluator | Bottlenecks and stuck leads are visible, not guessed at |
 | Bounded agent | AI insight without AI touching live state |
-| Automated checks | Overdue and stale leads caught without manual triggering |
+| Automated checks | Overdue and stale leads caught on demand — via the demo run or `POST /workflow/run-checks` |
 
 ## API Endpoints
 
@@ -134,9 +134,11 @@ did this lead get here," not only "where is it now."
 surfaced rather than dropped, because a wrong auto-merge is harder to
 undo than a flag.
 
-**Automated checks built in:** Time-based checks run without manual
-triggering, closing the gap between "works when I run it" and "keeps
-working."
+**Automated checks built in:** Time-based rules (overdue follow-up, stuck
+leads, stale re-engagement) run on demand — via `python main.py` or
+`POST /workflow/run-checks` — rather than only when a human happens to
+look. The logic is decoupled from any particular trigger, so wiring it
+to a cron job or task queue is a scheduling change, not a rewrite.
 
 **Standalone:** Reuses patterns from the other engines — Pydantic,
 deterministic fallback, SQLite audit, controlled agent layer — but

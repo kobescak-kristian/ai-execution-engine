@@ -12,6 +12,15 @@ from datetime import datetime, timedelta
 
 random.seed(42)
 
+# Relative offsets (days before "now") used to age a couple of demo leads at
+# seed time, past config.settings.FOLLOW_UP_THRESHOLD_DAYS / STUCK_LEAD_THRESHOLD_DAYS,
+# so the corresponding automated check has a real candidate to fire on on
+# every fresh run rather than only after real wall-clock days pass. Kept as
+# relative offsets (not absolute dates) so the demo picture is identical
+# regardless of what day it's actually run.
+DEMO_FOLLOW_UP_AGE_DAYS = 5      # > FOLLOW_UP_THRESHOLD_DAYS (3)
+DEMO_STUCK_CONTACTED_AGE_DAYS = 10  # > STUCK_LEAD_THRESHOLD_DAYS (7)
+
 INDUSTRIES = ["fintech", "saas", "healthcare", "legal", "e-commerce", "insurance",
               "logistics", "real-estate", "education", "manufacturing"]
 COMPANY_SIZES = ["enterprise", "mid-market", "smb", "startup", "solo"]

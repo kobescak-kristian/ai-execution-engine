@@ -84,6 +84,7 @@ def ingest_lead(source_type: str, raw_data: dict) -> dict:
 
     # Step 4: Build DB record
     now = _now_iso()
+    received_at_iso = normalized.received_at.strftime("%Y-%m-%dT%H:%M:%S")
     lead_record = {
         "source_type": normalized.source_type.value,
         "source_ref": normalized.source_ref,
@@ -98,8 +99,14 @@ def ingest_lead(source_type: str, raw_data: dict) -> dict:
         "current_stage": routing.initial_stage,
         "assigned_queue": routing.assigned_queue,
         "owner_notes": routing.reason,
-        "created_at": normalized.received_at.strftime("%Y-%m-%dT%H:%M:%S"),
-        "updated_at": now,
+        "created_at": received_at_iso,
+        # "Last updated" starts equal to the lead's actual arrival time, not
+        # the wall-clock moment this script happens to run -- otherwise a
+        # lead's freshness is measured from an artifact of when the demo was
+        # executed rather than when it was truly last touched, and time-based
+        # checks (stuck-in-'new') could never fire on a freshly seeded lead
+        # even when its real-world submission date is well past the threshold.
+        "updated_at": received_at_iso,
         "last_contacted_at": None,
         "outcome": None,
     }

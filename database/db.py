@@ -129,6 +129,19 @@ def update_lead_stage(lead_id: int, new_stage: str, updated_at: str,
         )
 
 
+def set_lead_updated_at(lead_id: int, updated_at: str):
+    """Directly backdates a lead's updated_at, bypassing the wall-clock
+    'now' that transition_lead/insert_lead normally stamp. Used to age a
+    handful of demo leads at seed time so the time-based automated checks
+    have something to fire on immediately, instead of only after real days
+    pass."""
+    with get_connection() as conn:
+        conn.execute(
+            "UPDATE leads SET updated_at = ? WHERE id = ?",
+            (updated_at, lead_id)
+        )
+
+
 def increment_duplicate_count(lead_id: int):
     with get_connection() as conn:
         conn.execute(

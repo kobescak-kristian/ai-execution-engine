@@ -70,6 +70,46 @@ def seed_from_file(path: str = "data/raw_inputs.json") -> int:
     return results["ingested"]
 
 
+# ─── Age Demo Leads ───────────────────────────────────────────────────────────
+
+def age_demo_leads():
+    """
+    Backdates two qualified leads into 'assigned' and 'contacted' with
+    updated_at timestamps already past the follow-up/stuck thresholds, so
+    run_automated_checks() below has a real candidate for each check on
+    every fresh run instead of only after real wall-clock days pass.
+    Picks the two lowest-id qualified leads for a fully deterministic demo.
+    """
+    from datetime import datetime, timedelta
+    from data.generate_dataset import DEMO_FOLLOW_UP_AGE_DAYS, DEMO_STUCK_CONTACTED_AGE_DAYS
+
+    qualified = sorted(
+        (l for l in db.get_all_leads_raw() if l["current_stage"] == "qualified"),
+        key=lambda l: l["id"]
+    )
+    if len(qualified) < 2:
+        return
+
+    now = datetime.utcnow()
+    follow_up_lead, stuck_contacted_lead = qualified[0], qualified[1]
+
+    transition_lead(follow_up_lead["id"], "assigned", "manual_assignment",
+                     notes="Assigned by sales manager after qualification review")
+    db.set_lead_updated_at(
+        follow_up_lead["id"],
+        (now - timedelta(days=DEMO_FOLLOW_UP_AGE_DAYS)).strftime("%Y-%m-%dT%H:%M:%S")
+    )
+
+    transition_lead(stuck_contacted_lead["id"], "assigned", "manual_assignment",
+                     notes="Assigned by sales manager after qualification review")
+    transition_lead(stuck_contacted_lead["id"], "contacted", "initial_outreach_sent",
+                     notes="First contact email sent, awaiting reply")
+    db.set_lead_updated_at(
+        stuck_contacted_lead["id"],
+        (now - timedelta(days=DEMO_STUCK_CONTACTED_AGE_DAYS)).strftime("%Y-%m-%dT%H:%M:%S")
+    )
+
+
 # ─── Simulate Lifecycle Progressions ─────────────────────────────────────────
 
 def simulate_progressions():
@@ -225,6 +265,10 @@ if __name__ == "__main__":
 
     # Seed
     total = seed_from_file("data/raw_inputs.json")
+
+    # Age a couple of leads past the follow-up/stuck thresholds so the
+    # automated checks below have a real candidate on every fresh run
+    age_demo_leads()
 
     # Run automated checks (time-based rules)
     print("\n[WORKFLOW] Running automated checks...")
