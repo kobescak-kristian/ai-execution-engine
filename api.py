@@ -19,7 +19,7 @@ from pipeline.state_manager import transition_lead, run_automated_checks, Transi
 from pipeline.metrics_evaluator import compute_metrics
 from pipeline.agent_analyzer import run_agent_analysis
 from pipeline.router import get_valid_next_stages
-from models.schemas import IngestRequest, ProgressRequest
+from models.schemas import IngestRequest, ProgressRequest, LeadStage
 from utils.logger import get_logger
 
 logger = get_logger("api")
@@ -113,16 +113,32 @@ def get_lead(lead_id: int):
 
 # ─── Stage Progression ────────────────────────────────────────────────────────
 
+def _parse_arrow_trigger(trigger: str) -> Optional[str]:
+    """Extracts the target stage from an arrow-style trigger, accepting
+    both the U+2192 form ("assigned → contacted") and the ASCII alias
+    ("assigned -> contacted"). Returns None if neither form is present."""
+    if "→" in trigger:
+        return trigger.split("→")[-1].strip()
+    if "->" in trigger:
+        return trigger.split("->")[-1].strip()
+    return None
+
+
 @app.post("/progress", tags=["Leads"])
 def progress_lead(request: ProgressRequest):
     """
     Manually advance a lead to a new stage.
-    Trigger describes what caused this transition (e.g. 'positive_reply', 'proposal_sent').
+    The trigger field doubles as the target-stage signal: either a bare
+    valid stage name (e.g. trigger="assigned", advancing a 'qualified'
+    lead to 'assigned') or an arrow expression naming the transition
+    explicitly (e.g. trigger="qualified -> assigned", or the U+2192 form
+    "qualified → assigned").
     """
     try:
+        arrow_target = _parse_arrow_trigger(request.trigger)
         updated = transition_lead(
             lead_id=request.lead_id,
-            to_stage=request.trigger.split("→")[-1].strip() if "→" in request.trigger else _infer_stage(request),
+            to_stage=arrow_target if arrow_target is not None else _infer_stage(request),
             trigger=request.trigger,
             notes=request.notes,
         )
@@ -148,7 +164,8 @@ def _infer_stage(request: ProgressRequest) -> str:
     except ValueError:
         raise TransitionError(
             f"Cannot infer target stage from trigger '{request.trigger}'. "
-            "Use a valid stage name or 'from_stage → to_stage' format."
+            "Use a valid stage name, or 'from_stage -> to_stage' "
+            "(ASCII or U+2192 '→' both accepted)."
         )
 
 
@@ -174,6 +191,14 @@ def progress_to_stage(lead_id: int, to_stage: str, trigger: str, notes: Optional
             "previous_stage": previous_stage,
             "current_stage": updated["current_stage"],
         }
+    except ValueError:
+        raise HTTPException(
+            status_code=400,
+            detail={
+                "message": f"Unknown stage '{to_stage}'.",
+                "valid_stages": [s.value for s in LeadStage],
+            },
+        )
     except TransitionError as e:
         raise HTTPException(status_code=400, detail=str(e))
 
