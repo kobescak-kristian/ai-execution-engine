@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 860" width="1600" height="860" font-family="Segoe UI, Arial, sans-serif">
+<rect x="0" y="0" width="1600" height="860" fill="#0a0e1e"/>
+<defs>
+  <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#4c8dff"/>
+  </marker>
+  <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/>
+  </marker>
+  <marker id="arrow-cyan" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#22d3ee"/>
+  </marker>
+</defs>
+
+
+<text x="800.0" y="55" font-size="34" font-weight="700" fill="#f5f7fa" text-anchor="middle">AI Execution Engine &#8212; v1.0</text>
+<text x="800.0" y="88" font-size="18" fill="#9aa5b8" text-anchor="middle">CRM Workflow Automation with Bounded Agent</text>
+
+
+<text x="800.0" y="140" font-size="15" font-weight="700" letter-spacing="1.5" fill="#4c8dff" text-anchor="middle">WORKFLOW PIPELINE</text>
+
+<rect x="40" y="168" width="200" height="167" rx="14" ry="14" fill="#10192f" stroke="#4c8dff" stroke-width="2"/>
+<path d="M128.0,192 L128.0,208 M120.0,200 L140.0,216 L160.0,200" stroke="#4c8dff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(12,0)"/>
+<text x="140.0" y="242" font-size="16" font-weight="700" fill="#4c8dff" text-anchor="middle">1. INGEST</text>
+<text x="140.0" y="268" font-size="14" font-weight="600" fill="#f5f7fa" text-anchor="middle">3 source types</text>
+<text x="140.0" y="290" font-size="12.5" fill="#7c8aa0" text-anchor="middle">web_form &#183; email</text>
+<text x="140.0" y="308" font-size="12.5" fill="#7c8aa0" text-anchor="middle">ad_platform</text>
+<rect x="264" y="168" width="200" height="167" rx="14" ry="14" fill="#10192f" stroke="#22d3ee" stroke-width="2"/>
+<g stroke="#22d3ee" stroke-width="3" fill="none" stroke-linecap="round"><line x1="346.0" y1="194" x2="382.0" y2="194"/><circle cx="358.0" cy="194" r="4" fill="#10192f"/><line x1="346.0" y1="208" x2="382.0" y2="208"/><circle cx="372.0" cy="208" r="4" fill="#10192f"/></g>
+<text x="364.0" y="242" font-size="16" font-weight="700" fill="#22d3ee" text-anchor="middle">2. NORMALISE</text>
+<text x="364.0" y="268" font-size="14" font-weight="600" fill="#f5f7fa" text-anchor="middle">Pydantic v2</text>
+<text x="364.0" y="290" font-size="12.5" fill="#7c8aa0" text-anchor="middle">field map &#183; score</text>
+<text x="364.0" y="308" font-size="12.5" fill="#7c8aa0" text-anchor="middle">dedup (flag / 409)</text>
+<rect x="488" y="168" width="200" height="167" rx="14" ry="14" fill="#10192f" stroke="#34d399" stroke-width="2"/>
+<g stroke="#34d399" stroke-width="3" fill="none" stroke-linecap="round"><path d="M572.0,202 L588.0,202 L604.0,192 M588.0,202 L604.0,212"/></g>
+<text x="588.0" y="242" font-size="16" font-weight="700" fill="#34d399" text-anchor="middle">3. ROUTE</text>
+<text x="588.0" y="268" font-size="14" font-weight="600" fill="#f5f7fa" text-anchor="middle">Deterministic</text>
+<text x="588.0" y="290" font-size="12.5" fill="#7c8aa0" text-anchor="middle">score &#8594; queue</text>
+<text x="588.0" y="308" font-size="12.5" fill="#7c8aa0" text-anchor="middle">+ stage</text>
+<rect x="712" y="168" width="200" height="167" rx="14" ry="14" fill="#10192f" stroke="#4c8dff" stroke-width="2"/>
+<g stroke="#4c8dff" stroke-width="3" fill="none"><ellipse cx="812.0" cy="194" rx="16" ry="6"/><path d="M796.0,194 L796.0,210 A16,6 0 0 0 828.0,210 L828.0,194"/></g>
+<text x="812.0" y="242" font-size="16" font-weight="700" fill="#4c8dff" text-anchor="middle">4. PERSIST</text>
+<text x="812.0" y="268" font-size="14" font-weight="600" fill="#f5f7fa" text-anchor="middle">SQLite record</text>
+<text x="812.0" y="290" font-size="12.5" fill="#7c8aa0" text-anchor="middle">stage + queue</text>
+<text x="812.0" y="308" font-size="12.5" fill="#7c8aa0" text-anchor="middle">every transition</text>
+<rect x="936" y="168" width="200" height="167" rx="14" ry="14" fill="#10192f" stroke="#a855f7" stroke-width="2"/>
+<g stroke="#a855f7" stroke-width="3" fill="none" stroke-linecap="round"><path d="M1022.0,200 A14,14 0 1 1 1022.0,212"/><path d="M1022.0,192 L1022.0,200 L1030.0,200" fill="none"/></g>
+<text x="1036.0" y="242" font-size="16" font-weight="700" fill="#a855f7" text-anchor="middle">5. LIFECYCLE</text>
+<text x="1036.0" y="268" font-size="14" font-weight="600" fill="#f5f7fa" text-anchor="middle">Stage progression</text>
+<text x="1036.0" y="290" font-size="12.5" fill="#7c8aa0" text-anchor="middle">new &#8594; qualified &#8594;</text>
+<text x="1036.0" y="308" font-size="12.5" fill="#7c8aa0" text-anchor="middle">... &#8594; won/lost</text>
+<rect x="1160" y="168" width="200" height="167" rx="14" ry="14" fill="#10192f" stroke="#fb923c" stroke-width="2"/>
+<g stroke="#fb923c" stroke-width="3" fill="none" stroke-linecap="round"><line x1="1244.0" y1="212" x2="1244.0" y2="200"/><line x1="1260.0" y1="212" x2="1260.0" y2="192"/><line x1="1276.0" y1="212" x2="1276.0" y2="196"/></g>
+<text x="1260.0" y="242" font-size="16" font-weight="700" fill="#fb923c" text-anchor="middle">6. METRICS</text>
+<text x="1260.0" y="268" font-size="14" font-weight="600" fill="#f5f7fa" text-anchor="middle">Workflow KPIs</text>
+<text x="1260.0" y="290" font-size="12.5" fill="#7c8aa0" text-anchor="middle">distribution &#183; stuck</text>
+<text x="1260.0" y="308" font-size="12.5" fill="#7c8aa0" text-anchor="middle">queue workload</text>
+<line x1="244" y1="251.5" x2="258" y2="251.5" stroke="#f5f7fa" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+<line x1="468" y1="251.5" x2="482" y2="251.5" stroke="#f5f7fa" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+<line x1="692" y1="251.5" x2="706" y2="251.5" stroke="#f5f7fa" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+<line x1="916" y1="251.5" x2="930" y2="251.5" stroke="#f5f7fa" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+<line x1="1140" y1="251.5" x2="1154" y2="251.5" stroke="#f5f7fa" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+<line x1="588.0" y1="335" x2="588.0" y2="370" stroke="#4c8dff" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+<rect x="470.0" y="372" width="236" height="118" rx="14" ry="14" fill="#10192f" stroke="#34d399" stroke-width="2"/>
+<g stroke="#34d399" stroke-width="3" fill="none" stroke-linecap="round"><path d="M574.0,394 L588.0,394 L602.0,386 M588.0,394 L602.0,402"/></g>
+<text x="588.0" y="422" font-size="15" font-weight="700" letter-spacing="0.5" fill="#34d399" text-anchor="middle">QUEUES</text>
+<text x="588.0" y="442" font-size="13.5" font-weight="600" fill="#f5f7fa" text-anchor="middle">5 named queues</text>
+<text x="588.0" y="459" font-size="10.3" fill="#7c8aa0" text-anchor="middle">inbound_queue &#183; smb_sales</text>
+<text x="588.0" y="473.5" font-size="10.3" fill="#7c8aa0" text-anchor="middle">enterprise_sales &#183; manual_review_queue</text>
+<text x="588.0" y="488.0" font-size="10.3" fill="#7c8aa0" text-anchor="middle">reengagement_queue</text>
+<rect x="936" y="372" width="200" height="118" rx="14" ry="14" fill="#10192f" stroke="#22d3ee" stroke-width="2"/>
+<circle cx="1036.0" cy="392" r="11" stroke="#22d3ee" stroke-width="3" fill="none"/><line x1="1036.0" y1="392" x2="1036.0" y2="385" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round"/><line x1="1036.0" y1="392" x2="1042.0" y2="395" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round"/>
+<text x="1036.0" y="422" font-size="15" font-weight="700" letter-spacing="0.5" fill="#22d3ee" text-anchor="middle">AUTOMATED CHECKS</text>
+<text x="1036.0" y="442" font-size="13.5" font-weight="600" fill="#f5f7fa" text-anchor="middle">Time-based</text>
+<text x="1036.0" y="462" font-size="12.5" fill="#7c8aa0" text-anchor="middle">overdue &#183; stuck &#183; stale</text>
+<rect x="1160" y="372" width="200" height="118" rx="14" ry="14" fill="#10192f" stroke="#a855f7" stroke-width="2"/>
+<rect x="1249.0" y="383" width="22" height="18" rx="4" stroke="#a855f7" stroke-width="3" fill="none"/><circle cx="1255.0" cy="392" r="2" fill="#a855f7"/><circle cx="1265.0" cy="392" r="2" fill="#a855f7"/>
+<text x="1260.0" y="422" font-size="15" font-weight="700" letter-spacing="0.5" fill="#a855f7" text-anchor="middle">BOUNDED AGENT</text>
+<text x="1260.0" y="442" font-size="13.5" font-weight="600" fill="#f5f7fa" text-anchor="middle">OpenAI &#8594; fallback</text>
+<text x="1260.0" y="459" font-size="12" fill="#7c8aa0" text-anchor="middle">recommends only &#8212;</text>
+<text x="1260.0" y="474" font-size="12" fill="#7c8aa0" text-anchor="middle">never modifies state</text>
+<line x1="1036.0" y1="372" x2="1036.0" y2="337" stroke="#22d3ee" stroke-width="2.5" stroke-dasharray="6,5" marker-end="url(#arrow-cyan)"/>
+<line x1="1260.0" y1="335" x2="1260.0" y2="370" stroke="#34d399" stroke-width="2.5" stroke-dasharray="6,5" marker-end="url(#arrow-green)"/>
+<rect x="40" y="530" width="1520" height="146" rx="14" ry="14" fill="#10192f" stroke="#1e2a44" stroke-width="1.5"/>
+<text x="70" y="568" font-size="16" font-weight="700" fill="#f5f7fa">KEY CAPABILITIES</text>
+<circle cx="78.0" cy="605" r="5" fill="#34d399"/>
+<text x="92.0" y="610" font-size="14.5" font-weight="700" fill="#f5f7fa">Deterministic</text>
+<text x="70.0" y="632" font-size="12.5" fill="#9aa5b8">Same input &#8594; same</text>
+<text x="70.0" y="650" font-size="12.5" fill="#9aa5b8">route, every time</text>
+<circle cx="443.0" cy="605" r="5" fill="#4c8dff"/>
+<text x="457.0" y="610" font-size="14.5" font-weight="700" fill="#f5f7fa">Auditable</text>
+<text x="435.0" y="632" font-size="12.5" fill="#9aa5b8">Every transition</text>
+<text x="435.0" y="650" font-size="12.5" fill="#9aa5b8">stored &amp; queryable</text>
+<circle cx="808.0" cy="605" r="5" fill="#a855f7"/>
+<text x="822.0" y="610" font-size="14.5" font-weight="700" fill="#f5f7fa">Bounded agent</text>
+<text x="800.0" y="632" font-size="12.5" fill="#9aa5b8">AI insight without</text>
+<text x="800.0" y="650" font-size="12.5" fill="#9aa5b8">touching live state</text>
+<circle cx="1173.0" cy="605" r="5" fill="#22d3ee"/>
+<text x="1187.0" y="610" font-size="14.5" font-weight="700" fill="#f5f7fa">Self-checking</text>
+<text x="1165.0" y="632" font-size="12.5" fill="#9aa5b8">Catches stale &amp;</text>
+<text x="1165.0" y="650" font-size="12.5" fill="#9aa5b8">stuck leads on a timer</text>
+<line x1="500" y1="716" x2="545" y2="716" stroke="#f5f7fa" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+<text x="555" y="721" font-size="13" fill="#9aa5b8">Primary flow</text>
+<line x1="690" y1="716" x2="735" y2="716" stroke="#34d399" stroke-width="2.5" stroke-dasharray="6,5" marker-end="url(#arrow-green)"/>
+<text x="745" y="721" font-size="13" fill="#9aa5b8">Recommends-only</text>
+<line x1="900" y1="716" x2="945" y2="716" stroke="#22d3ee" stroke-width="2.5" stroke-dasharray="6,5" marker-end="url(#arrow-cyan)"/>
+<text x="955" y="721" font-size="13" fill="#9aa5b8">Automated check</text>
+</svg>
