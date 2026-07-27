@@ -57,9 +57,11 @@ spanning all three source types (`web_form`, `email`, `ad_platform`).
 - Full stage history stored and queryable per lead — the complete
   journey of any lead is reconstructable
 - Automated checks surface overdue follow-ups, stuck leads, and stale
-  new entries — 1 follow-up escalation, 12 stuck leads, 1 reengagement
-  queued on a fresh run
-- The bounded agent produces 4 structured recommendations per run,
+  new entries — 1 follow-up escalation and 1 reengagement queued on
+  every fresh run; the stuck count varies with run date, because the
+  demo dataset is frozen and age-based checks compare it against the
+  current clock (deliberately not pinned — see tests/test_ci.py)
+- The bounded agent produces structured recommendations each run,
   each with an expected effect and a trade-off, reading metrics only —
   it never modifies CRM state
 - All workflow state exposed through 9 API endpoints
@@ -186,6 +188,7 @@ Complete — v1.0
 | v1.0 | 2026-06-20 | Fix execution engine audit findings — release |
 | v1.0 | 2026-07-04 | Adopt ARTIFACT_STANDARD Tier 0 — CLAUDE.md, pre-push validation, README restructure, first ADR |
 | v1.0 | 2026-07-07 | Remediation release — cp1252 console safety, placeholder-key no-network fallback, duplicate/conflict enforcement, manual_review_queue reachability + stage/queue desync fixes, deterministic automated checks, API robustness (400 on bad stage, ASCII arrow alias), full docs re-derivation |
+| v1.0 | 2026-07-27 | Docs: Outcome restricted to time-invariant run-figures — age-based counts (stuck escalations, recommendation count) drift as the frozen dataset ages and are no longer pinned to snapshot values |
 
 ## Setup
 
