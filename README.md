@@ -1,5 +1,7 @@
 # AI Execution Engine (CRM Workflow Automation) — v1.0
 
+[![CI](https://github.com/kobescak-kristian/ai-execution-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/kobescak-kristian/ai-execution-engine/actions/workflows/ci.yml)
+
 ## Problem
 
 **The problem with workflow automation that can't see itself.**
@@ -210,6 +212,8 @@ uvicorn api:app --reload
 The demo run seeds 74 distinct leads plus 2 dedup fixtures (1 same-data duplicate,
 1 conflicting duplicate) from `data/raw_inputs.json`, runs automated workflow checks,
 simulates lifecycle progressions, and prints metrics and agent recommendations to stdout.
+The keyless deterministic demo runs in CI on every push — Ubuntu, macOS and Windows,
+Python 3.12 and 3.14 — asserting the frozen seed and routing counts.
 To regenerate the dataset: `python data/generate_dataset.py`
 
 ## Repository Structure
