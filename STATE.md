@@ -2,7 +2,7 @@
 
 **Classification:** PROJECT · T0 (stateful CRM workflow execution engine with a bounded, recommendation-only agent layer; `domains/github-ops/CONVENTIONS.md` PROJECT/SYSTEM/EXPERIMENT taxonomy).
 
-**RECONSTRUCTED** (GOVERNANCE.md Build-repo STATE rule, clause 7): derived from git history and the README Version Log at scaffold time (2026-09-19, Q-72(f)), not written contemporaneously. Reconstructed entries are retrospective evidence, not contemporaneous record — the commit that adds this file begins the contemporaneous record going forward.
+**RECONSTRUCTED** (Build-repo STATE rule, clause 7): derived from git history and the README Version Log at scaffold time (2026-09-19), not written contemporaneously. Reconstructed entries are retrospective evidence, not contemporaneous record — the commit that adds this file begins the contemporaneous record going forward.
 
 ## Current state
 
@@ -23,11 +23,11 @@
 
 ## Build history since the Version Log's last entry (from `git log --reverse`)
 
-- **2026-07-27** (`b5137cd`) — Publish-gate coverage canary added (Q-60 push unblock).
+- **2026-07-27** (`b5137cd`) — Publish-gate coverage canary added.
 - **2026-07-28** (`90e6192`, `10c399e`) — Allowlist migrated to entry-exact format; adjudicated-secrets entry added (owner ruling 2026-07-27).
-- **2026-08-04** (`c01175a`, `0da7e96`) — Apache-2.0 license added; Q-35 hook rollout.
-- **2026-09-15** (`afba682`) — Canonical AGENTS.md router adopted (Q-93).
-- **2026-09-19** (this commit) — Q-72(f): STATE.md added (this file); validator gains a STATE.md-existence check, the obsolete 5-record decision cap is removed, and the six-name BANNED_WITHOUT_TRIGGER list is propagated (live-file precondition checked, clear).
+- **2026-08-04** (`c01175a`, `0da7e96`) — Apache-2.0 license added; hook rollout.
+- **2026-09-15** (`afba682`) — Canonical AGENTS.md router adopted.
+- **2026-09-19** (this commit) — STATE.md added (this file); validator gains a STATE.md-existence check, the obsolete 5-record decision cap is removed, and the six-name BANNED_WITHOUT_TRIGGER list is propagated (live-file precondition checked, clear).
 
 ## Open loops
 
