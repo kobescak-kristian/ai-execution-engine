@@ -15,6 +15,8 @@ checks. Workflow metrics are computed from stored state. A bounded agent
 layer reads those metrics and recommends improvements; it never mutates CRM
 or workflow state. Human overview: `README.md`.
 
+Classification: PROJECT.
+
 ## Authority and conflict handling
 
 | Question | Canonical source |
