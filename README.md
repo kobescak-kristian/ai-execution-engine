@@ -2,6 +2,10 @@
 
 [![CI](https://github.com/kobescak-kristian/ai-execution-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/kobescak-kristian/ai-execution-engine/actions/workflows/ci.yml)
 
+Deterministic CRM workflow automation with a bounded AI agent that recommends but never mutates state.
+
+**Status:** Built, 2026-07-27. v1.0.
+
 ## Problem
 
 **The problem with workflow automation that can't see itself.**
@@ -66,7 +70,7 @@ spanning all three source types (`web_form`, `email`, `ad_platform`).
   it never modifies CRM state
 - All workflow state exposed through 9 API endpoints
 
-## Architecture
+## System
 
 ![AI Execution Engine Overview](ai-execution-engine_architecture.png)
 
@@ -155,42 +159,7 @@ to a cron job or task queue is a scheduling change, not a rewrite.
 deterministic fallback, SQLite audit, controlled agent layer — but
 shares no files with them.
 
-## Known Limitations
-
-**Synthetic data** — the 74-lead dataset (76 ingest attempts, including
-2 intentional dedup fixtures) is generated, not real CRM data.
-
-**No API authentication** — endpoints are open; production requires
-auth middleware.
-
-**SQLite** — does not support concurrent writes at high throughput.
-Production upgrade: PostgreSQL.
-
-**Stateless agent** — analysis has no memory of prior recommendations
-or cross-run trend tracking; recommendations require manual
-implementation.
-
-*Production path: PostgreSQL · external scheduler / task queue ·
-API authentication · real CRM integration.*
-
-## Status
-
-Complete — v1.0
-
-## Version Log
-
-| Version | Date | Change |
-|---|---|---|
-| v1.0 | 2026-06-17 | Initial commit — AI execution engine (workflow automation pipeline) |
-| v1.0 | 2026-06-17 | Docs: add case-study README + architecture diagram |
-| v1.0 | 2026-06-18 | Docs: consistency pass — canonical System Context order + AI engine names |
-| v1.0 | 2026-06-18 | Docs: standardize naming — fix Impact Engine URL, dash bullets in System Context |
-| v1.0 | 2026-06-20 | Fix execution engine audit findings — release |
-| v1.0 | 2026-07-04 | Adopt ARTIFACT_STANDARD Tier 0 — CLAUDE.md, pre-push validation, README restructure, first ADR |
-| v1.0 | 2026-07-07 | Remediation release — cp1252 console safety, placeholder-key no-network fallback, duplicate/conflict enforcement, manual_review_queue reachability + stage/queue desync fixes, deterministic automated checks, API robustness (400 on bad stage, ASCII arrow alias), full docs re-derivation |
-| v1.0 | 2026-07-27 | Docs: Outcome restricted to time-invariant run-figures — age-based counts (stuck escalations, recommendation count) drift as the frozen dataset ages and are no longer pinned to snapshot values |
-
-## Setup
+## Run it
 
 ```bash
 # 1. Install dependencies
@@ -219,6 +188,41 @@ The keyless deterministic demo runs in CI on every push — Ubuntu, macOS and Wi
 Python 3.12 and 3.14 — asserting the frozen seed and routing counts.
 To regenerate the dataset: `python data/generate_dataset.py`
 
+## Known Limitations
+
+**Synthetic data** — the 74-lead dataset (76 ingest attempts, including
+2 intentional dedup fixtures) is generated, not real CRM data.
+
+**No API authentication** — endpoints are open; production requires
+auth middleware.
+
+**SQLite** — does not support concurrent writes at high throughput.
+Production upgrade: PostgreSQL.
+
+**Stateless agent** — analysis has no memory of prior recommendations
+or cross-run trend tracking; recommendations require manual
+implementation.
+
+*Production path: PostgreSQL · external scheduler / task queue ·
+API authentication · real CRM integration.*
+
+## Status
+
+Complete — v1.0
+
+## Version Log
+
+| Version | Date | Change |
+|---|---|---|
+| v1.0 | 2026-07-27 | Docs: Outcome restricted to time-invariant run-figures — age-based counts (stuck escalations, recommendation count) drift as the frozen dataset ages and are no longer pinned to snapshot values |
+| v1.0 | 2026-07-07 | Remediation release — cp1252 console safety, placeholder-key no-network fallback, duplicate/conflict enforcement, manual_review_queue reachability + stage/queue desync fixes, deterministic automated checks, API robustness (400 on bad stage, ASCII arrow alias), full docs re-derivation |
+| v1.0 | 2026-07-04 | Documentation standard adopted — CLAUDE.md, pre-push validation, README restructure, first ADR |
+| v1.0 | 2026-06-20 | Fix execution engine audit findings — release |
+| v1.0 | 2026-06-18 | Docs: standardize naming — fix Impact Engine URL, dash bullets in System Context |
+| v1.0 | 2026-06-18 | Docs: consistency pass — canonical System Context order + AI engine names |
+| v1.0 | 2026-06-17 | Docs: add case-study README + architecture diagram |
+| v1.0 | 2026-06-17 | Initial commit — AI execution engine (workflow automation pipeline) |
+
 ## Repository Structure
 
 ```
@@ -227,7 +231,7 @@ ai-execution-engine/
 ├── main.py                   # Local demo runner and seed entry point (--reset)
 ├── requirements.txt
 ├── .env.example
-├── CLAUDE.md                 # Repo-scoped agent instructions (ARTIFACT_STANDARD Tier 0)
+├── CLAUDE.md                 # Repo-scoped agent instructions
 ├── ai-execution-engine_architecture.png
 │
 ├── adr/
@@ -235,7 +239,7 @@ ai-execution-engine/
 │
 ├── .githooks/
 │   ├── pre-push
-│   └── validate_artifacts.py # Tier 0 artifact-standard check, run on pre-push
+│   └── validate_artifacts.py # Documentation check, run on pre-push
 │
 ├── pipeline/
 │   ├── normalizer.py         # Source-specific field mapping + score computation
@@ -273,3 +277,7 @@ Part of a five-engine AI decision system:
 - **[AI Context Engine](https://github.com/kobescak-kristian/ai-context-engine)** - grounds decisions in retrieved precedent and explains them
 
 Complete system: validation → evaluation → financial impact → execution → grounded explanation
+
+## License
+
+Apache License 2.0. See [LICENSE](LICENSE).
